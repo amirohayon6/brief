@@ -331,15 +331,41 @@ function doSearch(v){
 function addStock(sym){
   if(WL.indexOf(sym)<0){
     WL.push(sym);
-    // Create basic SD entry and trigger live fetch for new stocks
-    if(!SD[sym]){
-      getSE(sym); // populates SD[sym] from EXTRA
-      fetchWLStock(sym).then(function(){ renderWLMini(); renderBriefCards(); });
-    }
+    if(!SD[sym]) getSE(sym); // create basic SD entry from EXTRA
+    // Always fetch live price for newly added stock
+    fetchWLStock(sym).then(function(){ renderAll(); });
   }
   renderEditList();
   renderPopular();
   if(g('searchI').value) doSearch(g('searchI').value);
+}
+
+// ── HOME HERO ───────────────────────────────────────────────────────────
+function renderHome(){
+  var hdr=document.querySelector('.home-hdr'); if(!hdr) return;
+  // Add subtitle once
+  if(!g('home-sub-txt')){
+    var titleEl=hdr.querySelector('.home-title');
+    if(titleEl){
+      var sub=document.createElement('div');
+      sub.id='home-sub-txt'; sub.className='home-sub';
+      sub.textContent='סקירת שוק יומית · מחירים חיים';
+      titleEl.insertAdjacentElement('afterend',sub);
+    }
+  }
+  // Market pills for WL stocks
+  var old=g('mkt-strip'); if(old) old.remove();
+  var pills=WL.slice(0,6).map(function(sym){
+    var s=SD[sym]; if(!s||s.chg==='—'||s.chg==='...') return '';
+    var cls=s.dir>0?'up':s.dir<0?'dn':'nt';
+    var arrow=s.dir>0?'▲':s.dir<0?'▼':'';
+    return '<div class="mkt-pill"><span class="mkt-pill-sym">'+sym+'</span><span class="mkt-pill-chg '+cls+'">'+arrow+' '+s.chg+'</span></div>';
+  }).filter(Boolean).join('');
+  if(pills){
+    var strip=document.createElement('div');
+    strip.id='mkt-strip'; strip.className='mkt-strip';
+    strip.innerHTML=pills; hdr.appendChild(strip);
+  }
 }
 
 // ── RENDER ALL ─────────────────────────────────────────────────────────
@@ -347,13 +373,17 @@ function renderAll(){
   renderFeed();
   renderWLMini();
   renderBriefCards();
+  renderHome();
 }
 
-// ── LIVE PRICE FETCH (for WL stocks beyond the built-in list) ───────────
-var BUILTIN_STOCKS={BTC:1,ETH:1,XRP:1,NVDA:1,IBM:1,IREN:1,AAPL:1,META:1,MSFT:1,AMZN:1,TSLA:1,GOOGL:1,PLTR:1,SOFI:1,MBLY:1};
+// Alias for build.py compatibility (build.py calls renderCards after price refresh)
+function renderCards(){ renderAll(); }
+
+// ── LIVE PRICE FETCH ────────────────────────────────────────────────────
+var CRYPTO_SYMS={BTC:1,ETH:1,XRP:1};
 
 async function fetchWLStock(sym) {
-  if(sym==='BTC'||sym==='ETH'||sym==='XRP') return; // handled by CoinGecko fetch
+  if(CRYPTO_SYMS[sym]) return; // crypto handled by CoinGecko
   try {
     var r=await fetch('https://query1.finance.yahoo.com/v8/finance/chart/'+sym+'?interval=1d&range=1d');
     if(!r.ok) return;
@@ -370,16 +400,16 @@ async function fetchWLStock(sym) {
   } catch(e){}
 }
 
+// Fetch ALL WL stocks (not just non-builtin) and re-render
 async function refreshWLExtras(){
-  var extras=WL.filter(function(s){ return !BUILTIN_STOCKS[s]; });
-  if(!extras.length) return;
-  await Promise.allSettled(extras.map(fetchWLStock));
-  renderWLMini();
-  renderBriefCards();
+  var stocks=WL.filter(function(s){ return !CRYPTO_SYMS[s]; });
+  if(!stocks.length) return;
+  await Promise.allSettled(stocks.map(fetchWLStock));
+  renderAll();
 }
 
 window.addEventListener('load',function(){
-  setTimeout(refreshWLExtras, 2500);
+  setTimeout(refreshWLExtras, 1800);
   setInterval(refreshWLExtras, 5*60*1000);
 });
 
