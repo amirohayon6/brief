@@ -39,25 +39,17 @@ function getSE(sym) {
 }
 
 // ── FEED ───────────────────────────────────────────────────────────────
-var FI_COLOR={bull:'#22C55E',bear:'#EF4444',event:'#F59E0B',info:'#6366F1'};
-var FI_ICON ={bull:'ti-trending-up',bear:'ti-trending-down',event:'ti-calendar-event',info:'ti-info-circle'};
-
 function renderFeed() {
   var el=g('feed-list'); if(!el) return;
   var html='';
   for (var i=0; i<FLASH.length; i++) {
     var item=FLASH[i];
-    var color=FI_COLOR[item.type]||FI_COLOR.info;
-    var icon =FI_ICON[item.type] ||FI_ICON.info;
     var isP=false;
     for (var j=0; j<(item.tickers||[]).length; j++) { if(WL.indexOf(item.tickers[j])>=0){isP=true;break;} }
-    // Right border = type color; left gold border if it's "mine"
-    var borderStyle='border-right-color:'+color+(isP?';border-left:3px solid var(--gold)':'');
-    html+='<div class="fi" style="'+borderStyle+'">';
+    html+='<div class="fi">';
     html+='<div class="fi-top">';
-    html+='<div class="fi-icon" style="background:'+color+'18;color:'+color+'"><i class="ti '+icon+'"></i></div>';
-    html+='<span class="fi-tag" style="color:'+color+'">'+item.tag+'</span>';
-    if(isP) html+='<span class="fi-mine">שלך &#x2B50;</span>';
+    html+='<span class="fi-tag">'+item.tag+'</span>';
+    if(isP) html+='<span class="fi-mine">שלך</span>';
     html+='<span class="fi-time">'+item.time+'</span>';
     html+='</div>';
     html+='<div class="fi-txt">'+item.txt+'</div>';
