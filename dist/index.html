@@ -80,7 +80,7 @@ html,body{font-family:'Heebo',-apple-system,Arial,sans-serif;background:var(--bg
 .feed-list{display:flex;flex-direction:column;gap:8px}
 
 /* Feed item */
-.fi{background:var(--white);border-radius:12px;padding:13px 14px;border:0.5px solid var(--border);border-right:3px solid var(--gold);transition:box-shadow .12s}
+.fi{background:var(--white);border-radius:12px;padding:13px 14px;border:0.5px solid var(--border);border-right-width:3px;transition:box-shadow .12s}
 .fi:hover{box-shadow:0 2px 10px rgba(15,32,68,.06)}
 .fi-top{display:flex;align-items:center;gap:8px;margin-bottom:7px}
 .fi-tag{font-size:12px;font-weight:800;color:var(--navy);flex:1}
@@ -765,14 +765,17 @@ function getSE(sym) {
 }
 
 // ── FEED ───────────────────────────────────────────────────────────────
+var FI_BORDER={bull:'#22C55E', bear:'#EF4444', event:'#F59E0B', info:'var(--border2)'};
+
 function renderFeed() {
   var el=g('feed-list'); if(!el) return;
   var html='';
   for (var i=0; i<FLASH.length; i++) {
     var item=FLASH[i];
+    var borderColor=FI_BORDER[item.type]||FI_BORDER.info;
     var isP=false;
     for (var j=0; j<(item.tickers||[]).length; j++) { if(WL.indexOf(item.tickers[j])>=0){isP=true;break;} }
-    html+='<div class="fi">';
+    html+='<div class="fi" style="border-right-color:'+borderColor+'">';
     html+='<div class="fi-top">';
     html+='<span class="fi-tag">'+item.tag+'</span>';
     if(isP) html+='<span class="fi-mine">שלך</span>';

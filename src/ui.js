@@ -39,14 +39,17 @@ function getSE(sym) {
 }
 
 // ── FEED ───────────────────────────────────────────────────────────────
+var FI_BORDER={bull:'#22C55E', bear:'#EF4444', event:'#F59E0B', info:'var(--border2)'};
+
 function renderFeed() {
   var el=g('feed-list'); if(!el) return;
   var html='';
   for (var i=0; i<FLASH.length; i++) {
     var item=FLASH[i];
+    var borderColor=FI_BORDER[item.type]||FI_BORDER.info;
     var isP=false;
     for (var j=0; j<(item.tickers||[]).length; j++) { if(WL.indexOf(item.tickers[j])>=0){isP=true;break;} }
-    html+='<div class="fi">';
+    html+='<div class="fi" style="border-right-color:'+borderColor+'">';
     html+='<div class="fi-top">';
     html+='<span class="fi-tag">'+item.tag+'</span>';
     if(isP) html+='<span class="fi-mine">שלך</span>';
