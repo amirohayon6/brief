@@ -39,20 +39,28 @@ function getSE(sym) {
 }
 
 // ── FEED ───────────────────────────────────────────────────────────────
+var FI_COLOR={bull:'#22C55E',bear:'#EF4444',event:'#F59E0B',info:'#6366F1'};
+var FI_ICON ={bull:'ti-trending-up',bear:'ti-trending-down',event:'ti-calendar-event',info:'ti-info-circle'};
+
 function renderFeed() {
   var el=g('feed-list'); if(!el) return;
   var html='';
   for (var i=0; i<FLASH.length; i++) {
-    var item=FLASH[i], s=FS[item.type]||FS.info;
+    var item=FLASH[i];
+    var color=FI_COLOR[item.type]||FI_COLOR.info;
+    var icon =FI_ICON[item.type] ||FI_ICON.info;
     var isP=false;
     for (var j=0; j<(item.tickers||[]).length; j++) { if(WL.indexOf(item.tickers[j])>=0){isP=true;break;} }
-    var border=isP?'border-right:3px solid var(--gold);':'';
-    html+='<div class="fi" style="background:'+s.bg+';border:0.5px solid '+s.bd+';'+border+'">';
-    html+='<div class="fi-top"><span class="fi-dot" style="background:'+s.dot+'"></span>';
-    html+='<span class="fi-tag" style="color:'+s.dot+'">'+item.tag+'</span>';
-    html+='<span class="fi-time">'+item.time+'</span>';
+    // Right border = type color; left gold border if it's "mine"
+    var borderStyle='border-right-color:'+color+(isP?';border-left:3px solid var(--gold)':'');
+    html+='<div class="fi" style="'+borderStyle+'">';
+    html+='<div class="fi-top">';
+    html+='<div class="fi-icon" style="background:'+color+'18;color:'+color+'"><i class="ti '+icon+'"></i></div>';
+    html+='<span class="fi-tag" style="color:'+color+'">'+item.tag+'</span>';
     if(isP) html+='<span class="fi-mine">שלך &#x2B50;</span>';
-    html+='</div><div class="fi-txt">'+item.txt+'</div>';
+    html+='<span class="fi-time">'+item.time+'</span>';
+    html+='</div>';
+    html+='<div class="fi-txt">'+item.txt+'</div>';
     if(item.tickers&&item.tickers.length){
       html+='<div class="fi-tickers">';
       for(var k=0;k<item.tickers.length;k++){
@@ -385,7 +393,8 @@ var CRYPTO_SYMS={BTC:1,ETH:1,XRP:1};
 async function fetchWLStock(sym) {
   if(CRYPTO_SYMS[sym]) return; // crypto handled by CoinGecko
   try {
-    var r=await fetch('https://query1.finance.yahoo.com/v8/finance/chart/'+sym+'?interval=1d&range=1d');
+    // Use /api/price proxy to avoid browser CORS restrictions on Yahoo Finance
+    var r=await fetch('/api/price?sym='+encodeURIComponent(sym));
     if(!r.ok) return;
     var d=await r.json();
     var m=d&&d.chart&&d.chart.result&&d.chart.result[0]&&d.chart.result[0].meta;
