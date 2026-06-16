@@ -114,10 +114,114 @@ IREN:{name:"IREN",mkt:"Nasdaq",price:"57.50 דולר",chg:"+5.0% Ingenostrum",di
 }
 };
 
-var EXTRA=[{sym:"AAPL",name:"Apple",color:"#1C1C1E",mkt:"נאסד\"ק",init:"AP"},{sym:"META",name:"Meta",color:"#1877F2",mkt:"נאסד\"ק",init:"ME"},{sym:"MSFT",name:"Microsoft",color:"#00A4EF",mkt:"נאסד\"ק",init:"MS"},{sym:"AMZN",name:"Amazon",color:"#FF9900",mkt:"נאסד\"ק",init:"AM"},{sym:"TSLA",name:"Tesla",color:"#CC0000",mkt:"נאסד\"ק",init:"TE"},{sym:"GOOGL",name:"Alphabet",color:"#EA4335",mkt:"נאסד\"ק",init:"GO"},{sym:"AFCN",name:"אפקון החזקות",color:"#F59E0B",mkt:'ת"א',init:"אפ"},{sym:"GNRS",name:"גנריישן קפיטל",color:"#10B981",mkt:'ת"א',init:"גנ"},{sym:"ETH",name:"את'ריום",color:"#627EEA",mkt:"קריפטו",init:"ET"},{sym:"XRP",name:"ריפל",color:"#00AAE4",mkt:"קריפטו",init:"XR"},
-{sym:"MBLY",name:"Mobileye",color:"#0066CC",mkt:"נאסד\"ק",init:"MB"},
-{sym:"SOFI",name:"SoFi Technologies",color:"#9B59B6",mkt:"נאסד\"ק",init:"SF"},
-{sym:"PLTR",name:"Palantir",color:"#1A1A2E",mkt:'NYSE',init:"PL"}];
+// ── NASDAQ 100 + Popular Extras ───────────────────────────────────────────
+var EXTRA=[
+  // ── Big Tech ──
+  {sym:"AAPL", name:"Apple",            color:"#1C1C1E", mkt:"Nasdaq", init:"AP"},
+  {sym:"MSFT", name:"Microsoft",        color:"#00A4EF", mkt:"Nasdaq", init:"MS"},
+  {sym:"AMZN", name:"Amazon",           color:"#FF9900", mkt:"Nasdaq", init:"AM"},
+  {sym:"META", name:"Meta",             color:"#1877F2", mkt:"Nasdaq", init:"ME"},
+  {sym:"GOOGL",name:"Alphabet A",       color:"#EA4335", mkt:"Nasdaq", init:"GO"},
+  {sym:"GOOG", name:"Alphabet C",       color:"#4285F4", mkt:"Nasdaq", init:"GC"},
+  {sym:"TSLA", name:"Tesla",            color:"#CC0000", mkt:"Nasdaq", init:"TE"},
+  {sym:"COST", name:"Costco",           color:"#005DAA", mkt:"Nasdaq", init:"CO"},
+  {sym:"NFLX", name:"Netflix",          color:"#E50914", mkt:"Nasdaq", init:"NF"},
+  // ── Semiconductors ──
+  {sym:"AVGO", name:"Broadcom",         color:"#CC0000", mkt:"Nasdaq", init:"AV"},
+  {sym:"AMD",  name:"AMD",              color:"#ED1C24", mkt:"Nasdaq", init:"AD"},
+  {sym:"QCOM", name:"Qualcomm",         color:"#3253DC", mkt:"Nasdaq", init:"QC"},
+  {sym:"AMAT", name:"Applied Materials",color:"#00A0DC", mkt:"Nasdaq", init:"AM"},
+  {sym:"MU",   name:"Micron",           color:"#0033A0", mkt:"Nasdaq", init:"MU"},
+  {sym:"LRCX", name:"Lam Research",     color:"#0064A4", mkt:"Nasdaq", init:"LR"},
+  {sym:"KLAC", name:"KLA Corp",         color:"#003087", mkt:"Nasdaq", init:"KL"},
+  {sym:"MRVL", name:"Marvell",          color:"#1B5299", mkt:"Nasdaq", init:"MV"},
+  {sym:"NXPI", name:"NXP Semiconductors",color:"#009FE3",mkt:"Nasdaq", init:"NX"},
+  {sym:"ON",   name:"ON Semiconductor", color:"#00A651", mkt:"Nasdaq", init:"ON"},
+  {sym:"ARM",  name:"Arm Holdings",     color:"#0091BD", mkt:"Nasdaq", init:"AR"},
+  {sym:"TXN",  name:"Texas Instruments",color:"#C8102E", mkt:"Nasdaq", init:"TX"},
+  {sym:"MCHP", name:"Microchip Technology",color:"#C41230",mkt:"Nasdaq",init:"MC"},
+  // ── Software & Cloud ──
+  {sym:"ADBE", name:"Adobe",            color:"#FF0000", mkt:"Nasdaq", init:"AD"},
+  {sym:"INTU", name:"Intuit",           color:"#236CFF", mkt:"Nasdaq", init:"IN"},
+  {sym:"PANW", name:"Palo Alto Networks",color:"#00C7B1",mkt:"Nasdaq", init:"PA"},
+  {sym:"SNPS", name:"Synopsys",         color:"#4B0082", mkt:"Nasdaq", init:"SN"},
+  {sym:"CDNS", name:"Cadence",          color:"#0066CC", mkt:"Nasdaq", init:"CD"},
+  {sym:"FTNT", name:"Fortinet",         color:"#DA1F25", mkt:"Nasdaq", init:"FT"},
+  {sym:"CRWD", name:"CrowdStrike",      color:"#E0173D", mkt:"Nasdaq", init:"CR"},
+  {sym:"DDOG", name:"Datadog",          color:"#632CA6", mkt:"Nasdaq", init:"DD"},
+  {sym:"ZS",   name:"Zscaler",          color:"#00AAE4", mkt:"Nasdaq", init:"ZS"},
+  {sym:"TEAM", name:"Atlassian",        color:"#0052CC", mkt:"Nasdaq", init:"AT"},
+  {sym:"WDAY", name:"Workday",          color:"#F98900", mkt:"Nasdaq", init:"WD"},
+  {sym:"ANSS", name:"ANSYS",            color:"#FFB71B", mkt:"Nasdaq", init:"AN"},
+  {sym:"CSCO", name:"Cisco",            color:"#1BA0D7", mkt:"Nasdaq", init:"CS"},
+  {sym:"TTD",  name:"Trade Desk",       color:"#3D3935", mkt:"Nasdaq", init:"TD"},
+  {sym:"APP",  name:"AppLovin",         color:"#111111", mkt:"Nasdaq", init:"AP"},
+  {sym:"ZM",   name:"Zoom",             color:"#2D8CFF", mkt:"Nasdaq", init:"ZM"},
+  // ── E-commerce & Platforms ──
+  {sym:"MELI", name:"MercadoLibre",     color:"#FFE600", mkt:"Nasdaq", init:"ML"},
+  {sym:"ABNB", name:"Airbnb",           color:"#FF5A5F", mkt:"Nasdaq", init:"AB"},
+  {sym:"UBER", name:"Uber",             color:"#000000", mkt:"NYSE",   init:"UB"},
+  {sym:"DASH", name:"DoorDash",         color:"#FF3008", mkt:"NYSE",   init:"DA"},
+  {sym:"PDD",  name:"PDD Holdings",     color:"#FF5722", mkt:"Nasdaq", init:"PD"},
+  // ── Biotech & Healthcare ──
+  {sym:"REGN", name:"Regeneron",        color:"#004B87", mkt:"Nasdaq", init:"RG"},
+  {sym:"GILD", name:"Gilead Sciences",  color:"#C8102E", mkt:"Nasdaq", init:"GI"},
+  {sym:"VRTX", name:"Vertex Pharma",    color:"#6F2DA8", mkt:"Nasdaq", init:"VX"},
+  {sym:"AMGN", name:"Amgen",            color:"#003087", mkt:"Nasdaq", init:"AG"},
+  {sym:"ISRG", name:"Intuitive Surgical",color:"#004F9F",mkt:"Nasdaq", init:"IS"},
+  {sym:"DXCM", name:"DexCom",           color:"#00B140", mkt:"Nasdaq", init:"DX"},
+  {sym:"IDXX", name:"IDEXX Labs",       color:"#E4002B", mkt:"Nasdaq", init:"ID"},
+  {sym:"ILMN", name:"Illumina",         color:"#6600CC", mkt:"Nasdaq", init:"IL"},
+  {sym:"BIIB", name:"Biogen",           color:"#E4002B", mkt:"Nasdaq", init:"BI"},
+  {sym:"GEHC", name:"GE Healthcare",    color:"#004B87", mkt:"Nasdaq", init:"GH"},
+  // ── Consumer ──
+  {sym:"PEP",  name:"PepsiCo",          color:"#004B93", mkt:"Nasdaq", init:"PE"},
+  {sym:"SBUX", name:"Starbucks",        color:"#00704A", mkt:"Nasdaq", init:"SB"},
+  {sym:"MDLZ", name:"Mondelez",         color:"#8B0000", mkt:"Nasdaq", init:"MD"},
+  {sym:"KHC",  name:"Kraft Heinz",      color:"#E4002B", mkt:"Nasdaq", init:"KH"},
+  {sym:"MNST", name:"Monster Beverage", color:"#111111", mkt:"Nasdaq", init:"MN"},
+  {sym:"KDP",  name:"Keurig Dr Pepper", color:"#8B0000", mkt:"Nasdaq", init:"KD"},
+  {sym:"LULU", name:"Lululemon",        color:"#000000", mkt:"Nasdaq", init:"LL"},
+  {sym:"ROST", name:"Ross Stores",      color:"#003087", mkt:"Nasdaq", init:"RS"},
+  {sym:"DLTR", name:"Dollar Tree",      color:"#00843D", mkt:"Nasdaq", init:"DL"},
+  {sym:"MAR",  name:"Marriott",         color:"#C8102E", mkt:"Nasdaq", init:"MA"},
+  {sym:"ORLY", name:"O'Reilly Auto",    color:"#003087", mkt:"Nasdaq", init:"OR"},
+  // ── Industrials & Infrastructure ──
+  {sym:"HON",  name:"Honeywell",        color:"#E4002B", mkt:"Nasdaq", init:"HN"},
+  {sym:"CSX",  name:"CSX Corp",         color:"#004F9F", mkt:"Nasdaq", init:"CS"},
+  {sym:"PCAR", name:"PACCAR",           color:"#003087", mkt:"Nasdaq", init:"PC"},
+  {sym:"ODFL", name:"Old Dominion",     color:"#003087", mkt:"Nasdaq", init:"OD"},
+  {sym:"FAST", name:"Fastenal",         color:"#003087", mkt:"Nasdaq", init:"FA"},
+  {sym:"VRSK", name:"Verisk",           color:"#003087", mkt:"Nasdaq", init:"VR"},
+  {sym:"FANG", name:"Diamondback Energy",color:"#FF6B00",mkt:"Nasdaq", init:"FG"},
+  {sym:"CEG",  name:"Constellation Energy",color:"#00457C",mkt:"Nasdaq",init:"CE"},
+  {sym:"EXC",  name:"Exelon",           color:"#003087", mkt:"Nasdaq", init:"EX"},
+  {sym:"XEL",  name:"Xcel Energy",      color:"#003087", mkt:"Nasdaq", init:"XE"},
+  // ── Services & Telecom ──
+  {sym:"CTAS", name:"Cintas",           color:"#E4002B", mkt:"Nasdaq", init:"CT"},
+  {sym:"ADP",  name:"ADP",              color:"#D50000", mkt:"Nasdaq", init:"AD"},
+  {sym:"PAYX", name:"Paychex",          color:"#004B87", mkt:"Nasdaq", init:"PX"},
+  {sym:"TMUS", name:"T-Mobile",         color:"#E20074", mkt:"Nasdaq", init:"TM"},
+  {sym:"CMCSA",name:"Comcast",          color:"#CC0000", mkt:"Nasdaq", init:"CM"},
+  {sym:"CHTR", name:"Charter Comm",     color:"#0066CC", mkt:"Nasdaq", init:"CH"},
+  {sym:"CTSH", name:"Cognizant",        color:"#1B5299", mkt:"Nasdaq", init:"CG"},
+  {sym:"EA",   name:"Electronic Arts",  color:"#252525", mkt:"Nasdaq", init:"EA"},
+  {sym:"WBD",  name:"Warner Bros Discovery",color:"#003087",mkt:"Nasdaq",init:"WB"},
+  // ── Crypto & Fintech ──
+  {sym:"COIN", name:"Coinbase",         color:"#0052FF", mkt:"Nasdaq", init:"CB"},
+  {sym:"MSTR", name:"Strategy",         color:"#E4002B", mkt:"Nasdaq", init:"ST"},
+  // ── Israeli ──
+  {sym:"AFCN", name:"אפקון החזקות",    color:"#F59E0B", mkt:'ת"א',    init:"אפ"},
+  {sym:"GNRS", name:"גנריישן קפיטל",   color:"#10B981", mkt:'ת"א',    init:"גנ"},
+  // ── Crypto ──
+  {sym:"ETH",  name:"את'ריום",          color:"#627EEA", mkt:"קריפטו", init:"ET"},
+  {sym:"XRP",  name:"ריפל",             color:"#00AAE4", mkt:"קריפטו", init:"XR"},
+  // ── Already in SD but also here for search ──
+  {sym:"MBLY", name:"Mobileye",         color:"#0066CC", mkt:"Nasdaq", init:"MB"},
+  {sym:"SOFI", name:"SoFi Technologies",color:"#9B59B6", mkt:"Nasdaq", init:"SF"},
+  {sym:"PLTR", name:"Palantir",         color:"#1A1A2E", mkt:"NYSE",   init:"PL"}
+];
+
 var UID=(function(){var id=localStorage.getItem("mb_uid");if(!id){id="u"+Date.now().toString(36)+Math.random().toString(36).slice(2,5);localStorage.setItem("mb_uid",id);}return id;})();
 var WLK="mb_wl_"+UID;
 var WL=JSON.parse(localStorage.getItem(WLK)||'["BTC","NVDA","IBM"]');
