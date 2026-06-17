@@ -415,6 +415,84 @@ async function refreshWLExtras(){
 window.addEventListener('load',function(){
   setTimeout(refreshWLExtras, 1800);
   setInterval(refreshWLExtras, 5*60*1000);
+  setTimeout(refreshNews, 2000);
+  setInterval(refreshNews, 15*60*1000);
 });
 
 renderAll();
+
+// ── LIVE NEWS ───────────────────────────────────────────────────────────
+var LIVE_NEWS = [];
+var FI_LIVE_TAG = '<span style="background:#EF4444;color:#fff;border-radius:99px;padding:1px 7px;font-size:9px;font-weight:800;margin-right:6px;vertical-align:middle">חי</span>';
+
+async function refreshNews() {
+  try {
+    var r = await fetch('/api/news');
+    if (!r.ok) return;
+    var d = await r.json();
+    if (!d.items || !d.items.length) return;
+    LIVE_NEWS = d.items;
+    renderFeed();
+  } catch(e) {}
+}
+
+// Override renderFeed to also render live news below FLASH items
+var _renderFeedBase = renderFeed;
+renderFeed = function() {
+  var el = g('feed-list'); if (!el) return;
+  var html = '';
+
+  // Static FLASH items (Hebrew, curated)
+  for (var i = 0; i < FLASH.length; i++) {
+    var item = FLASH[i];
+    var borderColor = FI_BORDER[item.type] || FI_BORDER.info;
+    var isP = false;
+    for (var j = 0; j < (item.tickers||[]).length; j++) { if (WL.indexOf(item.tickers[j]) >= 0) { isP = true; break; } }
+    html += '<div class="fi" style="border-right-color:' + borderColor + '">';
+    html += '<div class="fi-top">';
+    html += '<span class="fi-tag">' + item.tag + '</span>';
+    if (isP) html += '<span class="fi-mine">שלך</span>';
+    html += '<span class="fi-time">' + item.time + '</span>';
+    html += '</div>';
+    html += '<div class="fi-txt">' + item.txt + '</div>';
+    if (item.tickers && item.tickers.length) {
+      html += '<div class="fi-tickers">';
+      for (var k = 0; k < item.tickers.length; k++) {
+        var t = item.tickers[k], inWL = WL.indexOf(t) >= 0;
+        html += '<button class="fi-tk' + (inWL ? ' mine' : '') + '" onclick="openOv(\'' + t + '\')">' + t + '</button>';
+      }
+      html += '</div>';
+    }
+    html += '</div>';
+  }
+
+  // Live news items (English, auto-fetched)
+  if (LIVE_NEWS.length) {
+    html += '<div style="font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;padding:12px 2px 6px;display:flex;align-items:center;gap:6px">';
+    html += FI_LIVE_TAG + 'חדשות שוק בזמן אמת</div>';
+    for (var n = 0; n < LIVE_NEWS.length; n++) {
+      var ni = LIVE_NEWS[n];
+      var bc = FI_BORDER[ni.type] || FI_BORDER.info;
+      var isPN = false;
+      for (var p = 0; p < (ni.tickers||[]).length; p++) { if (WL.indexOf(ni.tickers[p]) >= 0) { isPN = true; break; } }
+      html += '<div class="fi" style="border-right-color:' + bc + ';opacity:.92">';
+      html += '<div class="fi-top">';
+      html += '<span class="fi-tag" style="font-size:11px;font-weight:600">' + ni.title + '</span>';
+      if (isPN) html += '<span class="fi-mine">שלך</span>';
+      html += '</div>';
+      html += '<div style="display:flex;align-items:center;gap:6px;margin-top:4px">';
+      html += FI_LIVE_TAG;
+      html += '<span class="fi-time">' + ni.time + '</span>';
+      if (ni.tickers && ni.tickers.length) {
+        for (var q = 0; q < ni.tickers.length; q++) {
+          var ts = ni.tickers[q], inWLt = WL.indexOf(ts) >= 0;
+          html += '<button class="fi-tk' + (inWLt ? ' mine' : '') + '" onclick="openOv(\'' + ts + '\')" style="font-size:9px;padding:1px 6px">' + ts + '</button>';
+        }
+      }
+      html += '</div>';
+      html += '</div>';
+    }
+  }
+
+  el.innerHTML = html;
+};
