@@ -454,38 +454,50 @@ news:
 
 ## flash
 
-### FOMC היום — Warsh מדבר 14:00 ET
-type: event
-text: ריבית צפויה ל-hold ב-3.5-3.75% (97% סיכוי). הנקודה הניצית: dot plot צפוי למחוק את הורדת הריבית האחרונה של 2026 — אות שהריבית נשארת גבוהה לכל 2026. Warsh מחזיק מעמד ניצי. CPI מאי: 4.2% YoY — מעל היעד. 14:30 — מסיבת עיתונאים.
+- type: event
+  time: "14:00 ET"
+  tag: "FOMC Warsh"
+  tickers: [BTC, NVDA, PLTR]
+  txt: "ריבית צפויה ל-hold ב-3.5-3.75% (97% סיכוי). Dot plot צפוי למחוק הורדת ריבית אחרונה ל-2026 — ריבית גבוהה לכל השנה. CPI מאי: 4.2% YoY. 14:30 — מסיבת עיתונאים של Warsh."
 
-### מכירות קמעונאיות מאי: +0.9% — Beat
-type: bull
-text: Retail sales מאי +0.9% vs. ציפייה +0.5%. האמריקאי ממשיך לצרוך למרות CPI גבוה. הגידול הגבוה ביותר השנה — Consumer staples ו-auto sales הובילו. S&P 500 נפתח יציב.
+- type: bull
+  time: "08:30 ET"
+  tag: "מאקרו"
+  tickers: [COST, AMZN, TSLA]
+  txt: "Retail Sales מאי +0.9% vs. ציפייה +0.5% — ביצועים הגבוהים ביותר השנה. הצרכן האמריקאי חזק למרות CPI 4.2%. Consumer staples ו-auto sales הובילו."
 
-### IREN: מימון $3.65B סגור — AI Data Center
-type: bull
-text: IREN הכריזה על סגירת חבילת מימון $3.65B לבניית AI cloud infrastructure. Lunaria AI Cloud — מסירות Q4 2026. IREN עוברת מ-Bitcoin miner ל-AI cloud provider. Russell 2000 inclusion 26/6 מוסיף לחץ קנייה.
+- type: bull
+  time: "אתמול"
+  tag: "IREN"
+  tickers: [IREN]
+  txt: "IREN סגרה מימון $3.65B לבניית AI data center. Lunaria AI Cloud — מסירות Q4 2026. IREN עוברת מ-Bitcoin miner ל-AI cloud provider. Russell 2000 inclusion 26/6."
 
-### BTC לפני FOMC — זהירות
-type: bear
-text: ביטקוין ירד -1.7% ל-65,200 דולר לפני ה-FOMC. היסטורית: BTC ירד אחרי 8 מתוך 9 פגישות FOMC האחרונות. אם dot plot ניצי מאכזב — ירידה ל-62K-63K אפשרית. Strategy מחזיקה 846,842 BTC — תיק ענק בסיכון.
+- type: bear
+  time: "בוקר"
+  tag: "קריפטו"
+  tickers: [BTC, COIN, MSTR]
+  txt: "BTC ירד -1.7% ל-65,200 דולר לפני FOMC. היסטורית: BTC ירד אחרי 8 מתוך 9 פגישות FOMC. Dot plot ניצי עלול לדחוף BTC ל-62K-63K."
 
-### Russell 2000 — IREN Inclusion 26/6
-type: event
-text: IREN תצטרף ל-Russell 2000 ב-26 יוני. Rebalancing מייצר קנייה מנדטורית מקרנות אינדקס. היסטורית, מניות נכנסות עולות 5-15% בשבוע לפני הצטרפות. IREN כבר עלתה +60% השנה.
+- type: event
+  time: "28 יוני"
+  tag: "Tesla Robotaxi"
+  tickers: [TSLA]
+  txt: "טסלה משיקה Robotaxi ב-Austin, TX ב-28/6 עם 250 רכבים — השקה ציבורית ראשונה ללא נהג. הצלחה תהיה קטליזטור ענק. Uber ו-Lyft עוקבות בזהירות."
 
-### Retail Sales +0.9% — כלכלה חזקה
-type: bull
-text: נתון חזק נוסף. Retail Sales מאי הפתיע לטובה: +0.9% vs. +0.5% ציפייה. זה תומך בעמדת Warsh לשמור ריבית גבוהה. Fed לא יוריד ריבית כל עוד הצרכן חזק וה-CPI ב-4.2%.
+- type: event
+  time: "26 יוני"
+  tag: "Russell 2000"
+  tickers: [IREN]
+  txt: "IREN תצטרף ל-Russell 2000 ב-26/6. Rebalancing מייצר קנייה מנדטורית מקרנות אינדקס. מניות נכנסות עולות בממוצע 5-15% בשבוע לפני הצטרפות."
 
-### Tesla Robotaxi Austin — 28/6
-type: event
-text: טסלה משיקה Robotaxi ב-Austin, TX ב-28 יוני עם 250 רכבים. השקה ראשונה ציבורית לחלוטין ללא נהג. Uber ו-Lyft הגיבו בזהירות. הצלחה תהיה קטליזטור מניה — כישלון יפגע קשה.
+- type: info
+  time: "WWDC"
+  tag: "Apple"
+  tickers: [AAPL]
+  txt: "Apple Intelligence 2.0: Siri עם הבנת הקשר, Personal Context AI, Image Playground Pro. iOS 20 beta למפתחים. שחרור ספטמבר — iPhone 17 upgrade cycle צפוי חזק."
 
-### Apple Intelligence 2.0 — WWDC
-type: info
-text: Apple הציגה בשבוע שעבר ב-WWDC את Apple Intelligence 2.0: Siri עם הבנת הקשר, Personal Context AI, Image Playground Pro. iOS 20 beta זמין למפתחים. שחרור: ספטמבר. שדרוג iPhone 17 cycle צפוי להיות חזק.
-
-### NVDA Blackwell — Demand Beats Supply
-type: bull
-text: NVDA ממשיכה להפתיע: ביקוש ל-Blackwell GPU עולה על ייצור. Q2 delivery slots sold out עד Q4 2026. TSMC מרחיבה capacity לענות על ביקוש. אנליסטים מעלים PT ל-$250-270.
+- type: bull
+  time: "Q2"
+  tag: "NVDA Blackwell"
+  tickers: [NVDA, MU, AMAT]
+  txt: "ביקוש Blackwell GPU עולה על ייצור — Q2 delivery slots sold out עד Q4 2026. TSMC מרחיבה capacity. אנליסטים מעלים PT ל-$250-270."
