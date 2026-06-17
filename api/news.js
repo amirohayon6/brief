@@ -45,8 +45,11 @@ module.exports = async function handler(req, res) {
       let tm;
       while ((tm = tickerRe.exec(title)) !== null) tickers.push(tm[1]);
 
-      items.push({ title, time, type, tickers });
+      items.push({ title, time, type, tickers, ts: new Date(pubDate).getTime() || 0 });
     }
+
+    // Sort newest first
+    items.sort((a, b) => b.ts - a.ts);
 
     return res.json({ items, ts: Date.now() });
   } catch (e) {
