@@ -425,6 +425,15 @@ renderAll();
 var LIVE_NEWS = [];
 var FI_LIVE_TAG = '<span style="background:#EF4444;color:#fff;border-radius:99px;padding:1px 7px;font-size:9px;font-weight:800;margin-right:6px;vertical-align:middle">חי</span>';
 
+function toggleLN(id) {
+  var el = g(id); if (!el) return;
+  var open = el.style.display !== 'none';
+  el.style.display = open ? 'none' : 'block';
+  // flip arrow
+  var arrow = el.previousElementSibling && el.previousElementSibling.querySelector('span[style*="25BC"]');
+  if (arrow) arrow.innerHTML = open ? '&#x25BC;' : '&#x25B2;';
+}
+
 async function refreshNews() {
   try {
     var r = await fetch('/api/news');
@@ -475,7 +484,8 @@ renderFeed = function() {
       var bc = FI_BORDER[ni.type] || FI_BORDER.info;
       var isPN = false;
       for (var p = 0; p < (ni.tickers||[]).length; p++) { if (WL.indexOf(ni.tickers[p]) >= 0) { isPN = true; break; } }
-      html += '<div class="fi" style="border-right-color:' + bc + ';opacity:.92">';
+      var nid = 'ln-' + n;
+      html += '<div class="fi" style="border-right-color:' + bc + ';opacity:.92;cursor:pointer" onclick="toggleLN(\'' + nid + '\')">';
       html += '<div class="fi-top">';
       html += '<span class="fi-tag" style="font-size:11px;font-weight:600">' + ni.title + '</span>';
       if (isPN) html += '<span class="fi-mine">שלך</span>';
@@ -486,10 +496,14 @@ renderFeed = function() {
       if (ni.tickers && ni.tickers.length) {
         for (var q = 0; q < ni.tickers.length; q++) {
           var ts = ni.tickers[q], inWLt = WL.indexOf(ts) >= 0;
-          html += '<button class="fi-tk' + (inWLt ? ' mine' : '') + '" onclick="openOv(\'' + ts + '\')" style="font-size:9px;padding:1px 6px">' + ts + '</button>';
+          html += '<button class="fi-tk' + (inWLt ? ' mine' : '') + '" onclick="event.stopPropagation();openOv(\'' + ts + '\')" style="font-size:9px;padding:1px 6px">' + ts + '</button>';
         }
       }
+      html += '<span style="margin-right:auto;font-size:10px;color:var(--text3)">&#x25BC;</span>';
       html += '</div>';
+      if (ni.desc) {
+        html += '<div id="' + nid + '" style="display:none;margin-top:8px;padding-top:8px;border-top:1px solid var(--border);font-size:11px;color:var(--text2);line-height:1.65">' + ni.desc + '</div>';
+      }
       html += '</div>';
     }
   }

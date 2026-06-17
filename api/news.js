@@ -23,6 +23,7 @@ module.exports = async function handler(req, res) {
       };
       const title = get('title');
       const pubDate = get('pubDate');
+      const desc = get('description').replace(/<[^>]+>/g, '').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').trim().slice(0, 300);
       if (!title) continue;
 
       // Parse time as HH:MM ET
@@ -45,7 +46,7 @@ module.exports = async function handler(req, res) {
       let tm;
       while ((tm = tickerRe.exec(title)) !== null) tickers.push(tm[1]);
 
-      items.push({ title, time, type, tickers, ts: new Date(pubDate).getTime() || 0 });
+      items.push({ title, desc, time, type, tickers, ts: new Date(pubDate).getTime() || 0 });
     }
 
     // Sort newest first
