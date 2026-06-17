@@ -429,9 +429,41 @@ function toggleLN(id) {
   var el = g(id); if (!el) return;
   var open = el.style.display !== 'none';
   el.style.display = open ? 'none' : 'block';
-  // flip arrow
-  var arrow = el.previousElementSibling && el.previousElementSibling.querySelector('span[style*="25BC"]');
+  var arrow = g('arr-' + id);
   if (arrow) arrow.innerHTML = open ? '&#x25BC;' : '&#x25B2;';
+}
+
+function genExplanation(item) {
+  var t = (item.title || '').toLowerCase();
+  var prefix = '';
+  var body = '';
+  if (item.type === 'bull') {
+    prefix = '📈 ידיעה חיובית — ';
+    if (/earnings|beat|profit|revenue|record/.test(t)) body = 'תוצאות כספיות טובות מהצפוי. בדרך כלל דוחפות את המניה מעלה בטווח הקצר.';
+    else if (/upgrade|buy|overweight|target|raised/.test(t)) body = 'אנליסט שדרג את המניה או העלה יעד מחיר — אות ביטחון מ-Wall Street.';
+    else if (/deal|acqui|merger|partner/.test(t)) body = 'עסקה אסטרטגית עשויה להגביר ערך למשקיעים ולהרחיב את פעילות החברה.';
+    else if (/surges?|jumps?|gains?|rally|soar/.test(t)) body = 'עלייה חדה במחיר — לרוב מגיעה מנתון טוב, הכרזה או ביקוש גבוה.';
+    else body = 'התפתחות חיובית שעשויה לתמוך בעליית המניה.';
+  } else if (item.type === 'bear') {
+    prefix = '📉 ידיעה שלילית — ';
+    if (/miss|loss|decline|disappoint/.test(t)) body = 'ביצועים מתחת לציפיות. לרוב גורמים לירידה חדה במניה ביום הדוח.';
+    else if (/downgrade|sell|underweight|cut/.test(t)) body = 'אנליסט הוריד דירוג — אות אזהרה. יכול למשוך מוכרים נוספים.';
+    else if (/fall|drop|slides?|plunge/.test(t)) body = 'ירידה חדה במחיר — לרוב מגיעה מנתון רע, אזהרה, או מכירה מוסדית.';
+    else body = 'התפתחות שלילית שעשויה ללחוץ על מחיר המניה.';
+  } else if (item.type === 'event') {
+    prefix = '📅 אירוע מרכזי — ';
+    if (/fed|fomc|rate|powell|warsh/.test(t)) body = 'החלטות הפד על ריבית משפיעות על כל השוק. ריבית גבוהה = לחץ על growth stocks וקריפטו.';
+    else if (/earnings|results|report/.test(t)) body = 'דוח רווחים — נתון מרכזי שיכול להזיז מניה 10%+ ביום אחד.';
+    else if (/ipo|listing/.test(t)) body = 'הנפקה חדשה — כניסת חברה חדשה לשוק. בדרך כלל תנודתיות גבוהה ביום הראשון.';
+    else body = 'עקוב אחרי הפיתוחים — אירוע כזה עשוי לשנות כיוון בשוק.';
+  } else {
+    prefix = '💡 למה זה חשוב — ';
+    if (/ai|artificial intelligence|llm|model/.test(t)) body = 'התפתחות בתחום ה-AI — הסקטור הכי חם בשוק. עשוי להשפיע על NVDA, MSFT, GOOGL ועוד.';
+    else if (/crypto|bitcoin|btc|ethereum/.test(t)) body = 'חדשות קריפטו משפיעות ישירות על BTC, ETH, COIN, MSTR ומניות קשורות.';
+    else if (/china|taiwan|trade|tariff/.test(t)) body = 'מתיחות גיאופוליטית עם סין משפיעה על שרשרת האספקה של שבבים וטכנולוגיה.';
+    else body = 'מידע שיכול להשפיע על הסנטימנט בשוק. כדאי לעקוב אחרי הפיתוחים.';
+  }
+  return prefix + body;
 }
 
 async function refreshNews() {
@@ -485,6 +517,7 @@ renderFeed = function() {
       var isPN = false;
       for (var p = 0; p < (ni.tickers||[]).length; p++) { if (WL.indexOf(ni.tickers[p]) >= 0) { isPN = true; break; } }
       var nid = 'ln-' + n;
+      var expl = genExplanation(ni);
       html += '<div class="fi" style="border-right-color:' + bc + ';opacity:.92;cursor:pointer" onclick="toggleLN(\'' + nid + '\')">';
       html += '<div class="fi-top">';
       html += '<span class="fi-tag" style="font-size:11px;font-weight:600">' + ni.title + '</span>';
@@ -499,11 +532,9 @@ renderFeed = function() {
           html += '<button class="fi-tk' + (inWLt ? ' mine' : '') + '" onclick="event.stopPropagation();openOv(\'' + ts + '\')" style="font-size:9px;padding:1px 6px">' + ts + '</button>';
         }
       }
-      html += '<span style="margin-right:auto;font-size:10px;color:var(--text3)">&#x25BC;</span>';
+      html += '<span id="arr-' + nid + '" style="margin-right:auto;font-size:10px;color:var(--text3)">&#x25BC;</span>';
       html += '</div>';
-      if (ni.desc) {
-        html += '<div id="' + nid + '" style="display:none;margin-top:8px;padding-top:8px;border-top:1px solid var(--border);font-size:11px;color:var(--text2);line-height:1.65">' + ni.desc + '</div>';
-      }
+      html += '<div id="' + nid + '" style="display:none;margin-top:8px;padding:8px 10px;border-radius:8px;background:var(--bg);font-size:11.5px;color:var(--text2);line-height:1.7">' + expl + '</div>';
       html += '</div>';
     }
   }
