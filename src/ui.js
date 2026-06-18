@@ -382,6 +382,90 @@ function renderAll(){
 // Alias for build.py compatibility (build.py calls renderCards after price refresh)
 function renderCards(){ renderAll(); }
 
+// ── REFRESH BUTTON ──────────────────────────────────────────────────────
+function injectRefreshBtn() {
+  var topbar = document.querySelector('.topbar');
+  if (!topbar || g('refresh-btn')) return;
+  var btn = document.createElement('button');
+  btn.id = 'refresh-btn';
+  btn.innerHTML = '<i class="ti ti-refresh"></i>';
+  btn.title = 'רענן מחירים וחדשות';
+  btn.style.cssText = [
+    'background:transparent',
+    'border:1.5px solid rgba(255,255,255,0.25)',
+    'color:#fff',
+    'border-radius:99px',
+    'width:34px','height:34px',
+    'display:flex','align-items:center','justify-content:center',
+    'cursor:pointer',
+    'font-size:16px',
+    'transition:all .2s',
+    'flex-shrink:0'
+  ].join(';');
+  btn.addEventListener('click', doRefresh);
+  var settingBtn = topbar.querySelector('.setbtn');
+  if (settingBtn) settingBtn.parentNode.insertBefore(btn, settingBtn);
+  else topbar.appendChild(btn);
+}
+
+var _refreshing = false;
+async function doRefresh() {
+  if (_refreshing) return;
+  _refreshing = true;
+  var btn = g('refresh-btn');
+  var icon = btn && btn.querySelector('i');
+  if (!g('spin-style')) {
+    var s = document.createElement('style');
+    s.id = 'spin-style';
+    s.textContent = '@keyframes spin{to{transform:rotate(360deg)}}';
+    document.head.appendChild(s);
+  }
+  if (icon) { icon.style.animation = 'spin .7s linear infinite'; icon.style.display = 'inline-block'; }
+  if (btn) btn.disabled = true;
+  try {
+    var allStocks = Object.keys(DAILY).filter(function(s){ return !CRYPTO_SYMS[s]; });
+    await Promise.all([
+      fetchCryptoPricesAll(),
+      Promise.allSettled(allStocks.map(fetchWLStock)),
+      refreshNews()
+    ]);
+    renderAll();
+    if (typeof renderTicker === 'function') renderTicker();
+    var now = new Date();
+    var hhmm = now.getHours().toString().padStart(2,'0') + ':' + now.getMinutes().toString().padStart(2,'0');
+    showRefreshToast('עודכן ' + hhmm);
+  } catch(e) {}
+  if (icon) icon.style.animation = '';
+  if (btn) btn.disabled = false;
+  _refreshing = false;
+}
+
+async function fetchCryptoPricesAll() {
+  try {
+    var r = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,ripple&vs_currencies=usd&include_24hr_change=true');
+    if (!r.ok) return;
+    var d = await r.json();
+    var map = {bitcoin:'BTC', ethereum:'ETH', ripple:'XRP'};
+    Object.entries(map).forEach(function(pair) {
+      var q = d[pair[0]]; if (!q) return;
+      var pct = q.usd_24h_change || 0;
+      var ps = q.usd > 1000 ? q.usd.toLocaleString('en-US',{maximumFractionDigits:0}) : q.usd.toFixed(2);
+      if (SD[pair[1]]) { SD[pair[1]].price = ps + ' דולר'; SD[pair[1]].chg = (pct>=0?'+':'')+pct.toFixed(2)+'%'; SD[pair[1]].dir = pct>=0?1:-1; }
+    });
+  } catch(e) {}
+}
+
+function showRefreshToast(msg) {
+  var old = g('refresh-toast'); if (old) old.remove();
+  var t = document.createElement('div');
+  t.id = 'refresh-toast';
+  t.textContent = msg;
+  t.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:8px 18px;border-radius:99px;font-size:12px;font-weight:700;font-family:Heebo,sans-serif;z-index:9999;opacity:1;transition:opacity .5s;pointer-events:none;box-shadow:0 4px 16px rgba(0,0,0,.18)';
+  document.body.appendChild(t);
+  setTimeout(function(){ t.style.opacity='0'; }, 2200);
+  setTimeout(function(){ t.remove(); }, 2800);
+}
+
 // ── LIVE PRICE FETCH ────────────────────────────────────────────────────
 var CRYPTO_SYMS={BTC:1,ETH:1,XRP:1};
 
@@ -417,6 +501,7 @@ window.addEventListener('load',function(){
   setInterval(refreshWLExtras, 5*60*1000);
   setTimeout(refreshNews, 2000);
   setInterval(refreshNews, 15*60*1000);
+  injectRefreshBtn();
 });
 
 renderAll();
