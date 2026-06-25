@@ -9,7 +9,7 @@ var FS={
 
 // ── NAV ────────────────────────────────────────────────────────────────
 function gotoScreen(id) {
-  ['home','brief'].forEach(function(s){
+  ['home','brief','news'].forEach(function(s){
     var scr=document.getElementById('scr-'+s), btn=document.getElementById('nav-'+s);
     if(scr) scr.style.display=(s===id)?'block':'none';
     if(btn) btn.className=(s===id)?'nav-btn on':'nav-btn';
@@ -558,17 +558,15 @@ async function refreshNews() {
     var d = await r.json();
     if (!d.items || !d.items.length) return;
     LIVE_NEWS = d.items;
-    renderFeed();
+    renderNewsTab();
   } catch(e) {}
 }
 
-// Override renderFeed to also render live news below FLASH items
+// Override renderFeed — static FLASH items only (live news moved to news tab)
 var _renderFeedBase = renderFeed;
 renderFeed = function() {
   var el = g('feed-list'); if (!el) return;
   var html = '';
-
-  // Static FLASH items (Hebrew, curated)
   for (var i = 0; i < FLASH.length; i++) {
     var item = FLASH[i];
     var borderColor = FI_BORDER[item.type] || FI_BORDER.info;
@@ -591,38 +589,42 @@ renderFeed = function() {
     }
     html += '</div>';
   }
-
-  // Live news items (English, auto-fetched)
-  if (LIVE_NEWS.length) {
-    html += '<div style="font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;padding:12px 2px 6px;display:flex;align-items:center;gap:6px">';
-    html += FI_LIVE_TAG + 'חדשות שוק בזמן אמת</div>';
-    for (var n = 0; n < LIVE_NEWS.length; n++) {
-      var ni = LIVE_NEWS[n];
-      var bc = FI_BORDER[ni.type] || FI_BORDER.info;
-      var isPN = false;
-      for (var p = 0; p < (ni.tickers||[]).length; p++) { if (WL.indexOf(ni.tickers[p]) >= 0) { isPN = true; break; } }
-      var nid = 'ln-' + n;
-      var expl = genExplanation(ni);
-      html += '<div class="fi" style="border-right-color:' + bc + ';opacity:.92;cursor:pointer" onclick="toggleLN(\'' + nid + '\')">';
-      html += '<div class="fi-top">';
-      html += '<span class="fi-tag" style="font-size:11px;font-weight:600">' + ni.title + '</span>';
-      if (isPN) html += '<span class="fi-mine">שלך</span>';
-      html += '</div>';
-      html += '<div style="display:flex;align-items:center;gap:6px;margin-top:4px">';
-      html += FI_LIVE_TAG;
-      html += '<span class="fi-time">' + ni.time + '</span>';
-      if (ni.tickers && ni.tickers.length) {
-        for (var q = 0; q < ni.tickers.length; q++) {
-          var ts = ni.tickers[q], inWLt = WL.indexOf(ts) >= 0;
-          html += '<button class="fi-tk' + (inWLt ? ' mine' : '') + '" onclick="event.stopPropagation();openOv(\'' + ts + '\')" style="font-size:9px;padding:1px 6px">' + ts + '</button>';
-        }
-      }
-      html += '<span id="arr-' + nid + '" style="margin-right:auto;font-size:10px;color:var(--text3)">&#x25BC;</span>';
-      html += '</div>';
-      html += '<div id="' + nid + '" style="display:none;margin-top:8px;padding:8px 10px;border-radius:8px;background:var(--bg);font-size:11.5px;color:var(--text2);line-height:1.7">' + expl + '</div>';
-      html += '</div>';
-    }
-  }
-
   el.innerHTML = html;
 };
+
+// ── NEWS TAB ────────────────────────────────────────────────────────────────
+function renderNewsTab() {
+  var el = g('news-list'); if (!el) return;
+  if (!LIVE_NEWS.length) {
+    el.innerHTML = '<div style="text-align:center;padding:32px 16px;color:var(--text3);font-size:13px">טוען חדשות...</div>';
+    return;
+  }
+  var html = '';
+  for (var n = 0; n < LIVE_NEWS.length; n++) {
+    var ni = LIVE_NEWS[n];
+    var bc = FI_BORDER[ni.type] || FI_BORDER.info;
+    var isPN = false;
+    for (var p = 0; p < (ni.tickers||[]).length; p++) { if (WL.indexOf(ni.tickers[p]) >= 0) { isPN = true; break; } }
+    var nid = 'ln-' + n;
+    var expl = genExplanation(ni);
+    html += '<div class="fi" style="border-right-color:' + bc + ';cursor:pointer" onclick="toggleLN(\'' + nid + '\')">';
+    html += '<div class="fi-top">';
+    html += '<span class="fi-tag" style="font-size:11px;font-weight:600">' + ni.title + '</span>';
+    if (isPN) html += '<span class="fi-mine">שלך</span>';
+    html += '</div>';
+    html += '<div style="display:flex;align-items:center;gap:6px;margin-top:4px">';
+    html += FI_LIVE_TAG;
+    html += '<span class="fi-time">' + ni.time + '</span>';
+    if (ni.tickers && ni.tickers.length) {
+      for (var q = 0; q < ni.tickers.length; q++) {
+        var ts = ni.tickers[q], inWLt = WL.indexOf(ts) >= 0;
+        html += '<button class="fi-tk' + (inWLt ? ' mine' : '') + '" onclick="event.stopPropagation();openOv(\'' + ts + '\')" style="font-size:9px;padding:1px 6px">' + ts + '</button>';
+      }
+    }
+    html += '<span id="arr-' + nid + '" style="margin-right:auto;font-size:10px;color:var(--text3)">&#x25BC;</span>';
+    html += '</div>';
+    html += '<div id="' + nid + '" style="display:none;margin-top:8px;padding:8px 10px;border-radius:8px;background:var(--bg);font-size:11.5px;color:var(--text2);line-height:1.7">' + expl + '</div>';
+    html += '</div>';
+  }
+  el.innerHTML = html;
+}

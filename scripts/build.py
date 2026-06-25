@@ -259,6 +259,24 @@ def build(data):
   </div>
 </div>
 
+<!-- SCREEN: NEWS -->
+<div class="screen" id="scr-news" style="display:none">
+  <div class="brief-hdr">
+    <div class="brief-date">חדשות שוק</div>
+    <div style="display:flex;align-items:center;gap:7px">
+      <div class="live-badge"><span class="ldot"></span>חי</div>
+    </div>
+  </div>
+  <div class="feed-wrap">
+    <div class="feed-top">
+      <span class="pulse-dot"></span>
+      <span class="feed-lbl">חדשות בזמן אמת</span>
+      <span class="feed-time">מתרענן כל 15 דקות</span>
+    </div>
+    <div class="feed-list" id="news-list"></div>
+  </div>
+</div>
+
 <!-- STOCK OVERLAY -->
 <div class="overlay" id="ov">
   <div class="ov-wrap">
@@ -314,6 +332,9 @@ def build(data):
   </button>
   <button class="nav-btn" id="nav-brief" onclick="gotoScreen('brief')">
     <i class="ti ti-chart-bar"></i><span>סקירה</span>
+  </button>
+  <button class="nav-btn" id="nav-news" onclick="gotoScreen('news')">
+    <i class="ti ti-news"></i><span>חדשות</span>
   </button>
 </div>
 
