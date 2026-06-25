@@ -1,36 +1,36 @@
-# סקירה יומית — 18 יוני 2026
+# סקירה יומית — 25 יוני 2026
 
 ## meta
-date: חמישי, 18 יוני 2026
-date_short: 18 יוני
+date: יום רביעי, 25 יוני 2026
+date_short: 25 יוני
 updated: "10:30"
-next_brief: Tesla Robotaxi Austin 28/6 · IREN Russell 26/6
+next_brief: IREN Russell מחר 26/6 · Q2 Earnings יולי
 
 ## ticker
 | sym | price | chg | dir |
 |-----|-------|-----|-----|
-| BTC | 64,200 | -1.5% | -1 |
-| NVDA | 208.10 | -0.8% | -1 |
+| BTC | 61,285 | -3.0% | -1 |
+| NVDA | 203.50 | +1.8% | 1 |
 | IBM | 271.50 | +0.3% | 1 |
-| IREN | 60.10 | +1.5% | 1 |
-| Nasdaq | מתאושש | FOMC אתמול | 1 |
-| Brent | 78.20$ | -5% הסכם איראן | -1 |
-| INTC | +12% | Apple deal | 1 |
+| IREN | 50.30 | -8.1% | -1 |
+| Nasdaq | 25,930 | +1.8% Micron | 1 |
+| Brent | 73.10$ | המשך הסכם איראן | -1 |
+| MU | +18.1% | רווחי מחץ Q3 | 1 |
 
 ## stocks
 
 ### BTC
-price: 64,200 דולר
-chg: -1.5%
+price: 61,285 דולר
+chg: -3.0%
 dir: -1
-summary: ביטקוין ירד ל-64,200 דולר אחרי FOMC ניצי אתמול — dot plot הפתיע עם 9 חברים שמצפים להעלאת ריבית ב-2026. השוק מתעכל את הפרשנות. הסכם טראמפ-איראן תומך בסנטימנט הכללי אך לא מספיק לעצור את ירידת הקריפטו.
+summary: ביטקוין ירד ל-61,285 דולר — PCE מאי יצא חם מהצפוי (3.8% YoY) ולחץ על נכסי סיכון. הנאסדאק עלה 1.8% בזכות Micron אך קריפטו הפגין חולשה יחסית — disconnect בין קריפטו לטק. MSTR ו-COIN סובלות עם BTC.
 news:
 - color: "#EF4444"
-  text: FOMC אתמול — dot plot הפתיע: 9 מ-18 חברים מצפים להעלאת ריבית ב-2026. BTC ירד -3% מיד לאחר ההכרזה.
-- color: "#22C55E"
-  text: הסכם טראמפ-איראן נחתם — הורדת מחירי הנפט תפחית לחץ אינפלציוני. חיובי בטווח הבינוני לקריפטו.
+  text: PCE מאי 2026 — 3.8% YoY, חם מהצפוי. לחץ מאקרו על BTC ונכסי סיכון גם ביום tech rally.
 - color: "#F59E0B"
-  text: Strategy מחזיקה 846,842 BTC — תיק בשווי $54B. הפסד לא ממומש של ~$1.7B לאחר ירידות האתמול.
+  text: Strategy מחזיקה 846,842 BTC — שווי $51.8B לאחר הירידה. NAV premium מצטמצם.
+- color: "#22C55E"
+  text: Nasdaq AI rally מ-Micron לא הצית BTC — disconnect זמני. היסטורית, AI bull market טוב ל-BTC בטווח הבינוני.
 
 ### ETH
 price: 1,741 דולר
@@ -55,83 +55,83 @@ news:
   text: Ripple רישיון בנקאי Q3 — קטליזטור עיקרי קרוב.
 
 ### NVDA
-price: 208.10 דולר
-chg: -0.8%
-dir: -1
-summary: NVDA ירדה מעט ל-208.10 דולר אחרי FOMC. ירידת מחירי הנפט מהסכם איראן מורידה עלויות ייצור. ביקוש Blackwell ממשיך לעלות — Q2 delivery slots sold out. Intel-Apple deal לא פוגע ב-NVDA — שוק AI שונה לחלוטין.
+price: 203.50 דולר
+chg: +1.8%
+dir: 1
+summary: Nvidia עולה ל-203.50 דולר — Micron הוכיחה ש-AI memory demand חזקה יותר מכל תחזית. HBM3E demand מ-NVDA sold out עד Q1 2027. Blackwell שרשרת ביקוש שלמה מאושרת היום.
 news:
 - color: "#22C55E"
-  text: ירידת נפט -5% → עלויות data center יורדות. חיובי לשוליים של NVDA לטווח בינוני.
-- color: "#F59E0B"
-  text: FOMC ניצי — growth stocks תחת לחץ. NVDA עמידה יחסית, ירדה פחות מה-Nasdaq.
+  text: Micron Q3 — $41.46B הכנסות, HBM3E sold out. NVDA נהנית כ-primary customer לזיכרון AI.
 - color: "#22C55E"
-  text: Blackwell demand: Q2 slots sold out עד Q4. מחסור בהיצע שומר מחיר.
+  text: Blackwell demand ממשיך — Q4 delivery slots sold out. AI capex cycle לא מאט.
 
 ### AAPL
-price: 301.40 דולר
-chg: +0.7%
+price: 299.00 דולר
+chg: +1.0%
 dir: 1
-summary: אפל עולה ל-301.40 דולר — ראשונה מעל $300. טראמפ אישר עסקת Apple-Intel לייצור שבבים בארה"ב. הנפקת שבבים מקומית תפחית תלות ב-TSMC. מניית אפל נהנת מהסכם האיראני ומהחדשות על Intel.
+summary: אפל עולה ל-299 דולר — טכנולוגיה מתאוששת בזכות AI rally מ-Micron. iOS 19 AI features בפיתוח. Apple-Intel deal ממשיך להניע סנטימנט. Qualcomm modems ו-ARM architecture נשארים.
 news:
 - color: "#22C55E"
-  text: Apple-Intel deal אושר — ייצור שבבים מקומי בארה"ב. AAPL שוברת $300.
+  text: AI chip rally מ-Micron מושך את כל tech. AAPL נהנית מסנטימנט חיובי לסקטור.
 - color: "#22C55E"
-  text: הסכם איראן → שרשרת אספקה מתייצבת. TSMC risk יורד.
+  text: Apple-Intel deal ב-18A process — ייצור שבבים מקומי בארה"ב. שרשרת אספקה מתחזקת.
 
 ### MSFT
-price: 469.20 דולר
-chg: -0.5%
-dir: -1
-summary: מיקרוסופט ב-469.20 דולר — ירידה קלה בעקבות FOMC. Azure AI ממשיך בצמיחה של 35% YoY. Copilot $4B ARR. הלחץ מהריבית הגבוהה משפיע על הערכת שווי.
+price: 371.00 דולר
+chg: +1.9%
+dir: 1
+summary: מיקרוסופט קופצת ל-371 דולר — Micron הוכיחה ש-AI infrastructure investment ממשיך בעוצמה. Azure AI beneficiary ישיר. Copilot $4B ARR מצדיק ה-AI capex. Microsoft היא אחת הלקוחות הגדולות של Micron.
 news:
-- color: "#F59E0B"
-  text: FOMC — ריבית גבוהה ל-2026 מלחיצה על מכפילים גבוהים כמו MSFT P/E 35x.
 - color: "#22C55E"
-  text: Azure AI +35% YoY. Copilot הוסיף $4B ARR. יסודות חזקים.
+  text: AI infrastructure rally — Azure AI beneficiary ישיר. MSFT קונה Micron memory ל-data centers.
+- color: "#22C55E"
+  text: Copilot ARR $4B — AI monetization מוכחת. OpenAI deal ממשיך ליצור ביקוש עצום.
 
 ### AMZN
-price: 244.80 דולר
-chg: -0.5%
-dir: -1
-summary: אמזון ב-244.80 דולר — ירידה קלה. AWS: הכנסות $32B Q1, צמיחה 22% YoY. הסכם איראן יפחית עלויות לוגיסטיקה עולמיות. Prime Day יולי — קטליזטור קרוב.
+price: 241.50 דולר
+chg: +3.1%
+dir: 1
+summary: אמזון קופצת ל-241.50 דולר — שני מנועים היום: Micron הוכיח ש-AWS AI capex מוצדק לחלוטין, ו-Prime Day ביצועים חזקים מעל תחזיות. AI shopping ב-Amazon עלה 40% YoY. Q2 revenue beat צפוי.
 news:
 - color: "#22C55E"
-  text: הסכם איראן → הורמוז נפתח → עלויות shipping יורדות. חיובי לאמזון לוגיסטיקה.
+  text: Prime Day ביצועים חזקים — AI shopping +40% YoY. אנליסטים מעלים תחזיות Q2 לאמזון.
 - color: "#22C55E"
-  text: Prime Day יולי — $15B מכירות צפויות. קרוב.
+  text: AWS AI infrastructure — Micron confirms AI memory demand חזק. AWS beneficiary ישיר מ-HBM boom.
 
 ### META
-price: 719.80 דולר
-chg: -0.5%
-dir: -1
-summary: מטא ב-719.80 דולר — ירידה קלה אחרי FOMC. Meta AI: 500M משתמשים חודשיים. Ray-Ban Glasses: 3M נמכרו. Llama 4 ממשיך לצבור שוק open source.
+price: 726.00 דולר
+chg: +0.9%
+dir: 1
+summary: מטא ב-726 דולר — עולה עם ה-AI tech rally. Meta AI 500M משתמשים חודשיים. Llama 4 ממשיך להוביל open source AI. Ray-Ban Glasses 3M יחידות. ריאלס ממשיכות לצמוח בפרסום.
 news:
-- color: "#F59E0B"
-  text: FOMC ניצי — מכפיל גבוה של META (P/E 28x) תחת לחץ.
 - color: "#22C55E"
-  text: Meta AI 500M משתמשים. Llama 4 — מוביל ב-open source. יסודות חזקים.
+  text: AI tech rally יום חיובי לכל Big Tech. META מרוויחה מ-Micron rally וסנטימנט הסקטור.
+- color: "#22C55E"
+  text: Meta AI 500M משתמשים. Llama 4 ב-top benchmarks — AI monetization ב-2026 בשיא.
 
 ### GOOGL
-price: 187.90 דולר
-chg: -0.4%
-dir: -1
-summary: גוגל ב-187.90 דולר — ירידה מינורית. Gemini Ultra 2 מוביל. Google Cloud +28% YoY. DOJ antitrust עדיין מאיים — פסיקה Q3 2026.
+price: 381.50 דולר
+chg: +1.5%
+dir: 1
+summary: גוגל עולה ל-381.50 דולר — AI rally, Google Cloud מרוויחה ישירות. Gemini Ultra 2 מוביל benchmarks. Waymo expansion מתקדמת. DOJ antitrust ruling Q3 עדיין איום על המודל העסקי.
 news:
-- color: "#F59E0B"
-  text: DOJ antitrust — פסיקה Q3. סיכון רגולטורי נשאר מעל GOOGL.
 - color: "#22C55E"
-  text: Google Cloud +28% YoY. Gemini Ultra 2 מוביל benchmark.
+  text: Google Cloud beneficiary מ-AI infrastructure boom. Micron rally confirms AI capex cycle חזק.
+- color: "#F59E0B"
+  text: DOJ antitrust Q3 — סיכון מתמשך. פסיקה תשפיע על Google Search ו-advertising מודל.
 
 ### TSLA
-price: 338.50 דולר
-chg: -1.0%
+price: 357.00 דולר
+chg: -4.8%
 dir: -1
-summary: טסלה ב-338.50 דולר — ירידה. Robotaxi Austin 28/6 מתקרב — 250 רכבים. הסכם איראן מוריד מחיר נפט — לחץ על מכירות EV אם בנזין יהיה זול יותר.
+summary: טסלה נפלה ל-357 דולר — NHTSA פתחה חקירת בטיחות מיוחדת לאחר תאונה קטלנית: Model 3 עם FSD פגע בבית והרג אישה בת 76 ליד יוסטון. החקירה מאיימת ישירות על שירות Robotaxi Austin שהשיק ב-6 יוני.
 news:
+- color: "#EF4444"
+  text: NHTSA probe — Model 3 FSD תאונה קטלנית בטקסס. חקירה מיוחדת מאיימת על Robotaxi rollout.
 - color: "#F59E0B"
-  text: נפט זול → בנזין זול → לחץ על ביקוש EV. סיכון לטסלה בטווח הקצר.
-- color: "#22C55E"
-  text: Robotaxi Austin 28/6 — 250 רכבים. השקה ראשונה ציבורית ללא נהג. קטליזטור.
+  text: Robotaxi Austin (הושק 6/6) — 250 רכבים פעילים. NHTSA עלולה להשהות שירות עד תום החקירה.
+- color: "#EF4444"
+  text: FSD recall risk — אם NHTSA תמצא פגם מערכתי, Tesla תידרש ל-software recall של כל הצי.
 
 ### AVGO
 price: 241.20 דולר
@@ -440,56 +440,50 @@ news:
 
 ## flash
 
-- type: event
-  time: "אתמול 14:30 ET"
-  tag: "FOMC — Warsh ניצי"
-  tickers: [BTC, NVDA, PLTR, MSFT]
-  txt: "Fed החזיק ריבית ב-3.5-3.75% אך dot plot הפתיע: 9 מ-18 חברים מצפים להעלאת ריבית ב-2026. Nasdaq ירד -1.34%, S&P -1.21%. שוק מתעכל היום."
-
 - type: bull
-  time: "הבוקר"
-  tag: "הסכם טראמפ-איראן"
-  tickers: [COST, AMZN, CEG, TSLA]
-  txt: "טראמפ ואיראן חתמו על הסכם 14 נקודות לפתיחת מצר הורמוז וסיום המלחמה. נפט ירד -5% ל-$78. S&P 500 +0.9% בפתיחה — מתאושש מירידות FOMC."
-
-- type: bull
-  time: "הבוקר"
-  tag: "Apple-Intel Deal"
-  tickers: [AAPL, INTC, AMAT, ARM]
-  txt: "טראמפ הכריז שאפל הגיעה להסכם עם אינטל לייצור שבבים בארה"ב. INTC +12% שיא כל הזמנים. AAPL שוברת $300 לראשונה. AMAT ו-ARM נהנות."
+  time: "05:30 ET"
+  tag: "Micron מחץ רווחי"
+  tickers: [MU, NVDA, AMD, AMAT]
+  txt: "Micron פרסמה רווחי Q3 FY2026 שהפתיעו את כולם: $41.46B הכנסות (פי 4.5 משנה שעברה), EPS $25.11 לעומת תחזית $20.20. MU +18.1%. Nasdaq futures קפצו 2%. אישור שה-AI memory demand חזק מכל תחזית."
 
 - type: bear
-  time: "אתמול"
-  tag: "Nasdaq -1.34%"
-  tickers: [MSFT, META, GOOGL, AMZN]
-  txt: "Nasdaq ירד -1.34% אחרי FOMC — הגדול מאז אפריל 2025. Microsoft, Meta, Alphabet ואמזון הובילו ירידות. שוק ממחר שריבית עלולה לעלות."
-
-- type: event
-  time: "26 יוני"
-  tag: "IREN Russell 2000"
-  tickers: [IREN]
-  txt: "IREN תצטרף ל-Russell 2000 ב-26/6 — 8 ימים. קנייה מנדטורית מקרנות אינדקס. היסטורית מניות עולות 5-15% בשבוע לפני ההצטרפות. IREN +60% מתחילת השנה."
-
-- type: event
-  time: "28 יוני"
-  tag: "Tesla Robotaxi"
+  time: "הבוקר"
+  tag: "Tesla NHTSA probe"
   tickers: [TSLA]
-  txt: "Tesla משיקה Robotaxi ב-Austin TX ב-28/6 עם 250 רכבים — 10 ימים. השקה ציבורית ראשונה ללא נהג. הצלחה = קטליזטור ענק. כישלון = פגיעה קשה."
+  txt: "NHTSA פתחה חקירת בטיחות מיוחדת: Model 3 עם FSD engaged פגע בבית והרג אישה בת 76 בטקסס. TSLA -4.8%. החקירה מאיימת על שירות Robotaxi Austin (הושק 6/6) עם 250 רכבים פעילים. פוטנציאל ל-software recall."
 
-- type: info
-  time: "היום"
-  tag: "נפט -5%"
-  tickers: [CEG, COST, AMZN, TSLA]
-  txt: "Brent ב-$78.20 — ירד -5% לאחר הסכם איראן. מחירי הדלק יורדים → לחץ על מכירות EV אך חיובי לצרכן הכללי ולחברות לוגיסטיקה."
+- type: event
+  time: "מחר 26/6"
+  tag: "IREN Russell מחר"
+  tickers: [IREN]
+  txt: "IREN תצטרף ל-Russell 2000 מחר בבוקר — קנייה מנדטורית מקרנות אינדקס המחזיקות $10T+ נכסים. IREN ירדה -8.1% היום — ייתכן שחשיפת שורטיסטים לפני הכניסה. היסטורית, מניות עולות 5-15% סביב ה-rebalancing."
 
-- type: info
-  time: "היום"
-  tag: "Intel 18A Chip"
-  tickers: [INTC, AAPL, AMAT]
-  txt: "Intel מייצרת את השבב המתקדם ביותר שלה — 18A process node — ומתקרבת ל-TSMC ביכולת. Apple deal מאשרת את ה-turnaround של Intel לאחר שנים קשות."
+- type: event
+  time: "08:30 ET"
+  tag: "PCE מאי 2026"
+  tickers: [BTC, MSFT, NVDA]
+  txt: "PCE מאי נחשף היום — 3.8% YoY, גבוה מתחזית 3.5%. Core PCE 3.3%. נפט-driven inflation מהחודשים האחרונים. הנתון לחץ על BTC אך השוק בחר לחגוג את Micron. Fed צפוי להחזיק ריבית."
 
 - type: bull
-  time: "שבוע הבא"
-  tag: "Russell Rebalance"
-  tickers: [IREN]
-  txt: "ה-Russell 2000 rebalancing ב-26/6 יכלול את IREN. קרנות אינדקס מחזיקות $10T+ נכסים — קנייה מנדטורית מתקרבת. אחד מהקטליזטורים הוודאיים ביותר בשוק."
+  time: "אתמול אחה"
+  tag: "Qualcomm AI תחזיות"
+  tickers: [QCOM, AMD]
+  txt: "Qualcomm פרסמה תחזיות AI optimistic לצד Micron — Snapdragon X Elite ב-AI PCs זוכה בנתחי שוק. QCOM מדריכה ל-AI PC market share של 40% ב-2026. Semis rally נרחב בכל הסקטור."
+
+- type: bull
+  time: "הבוקר"
+  tag: "IBM שבב תת-ננומטרי"
+  tickers: [IBM]
+  txt: "IBM הודיעה על פיתוח שבב sub-1nm — הקטן בעולם — ב-אלביני ניו יורק. ביצועים פי 10 מ-Snapdragon 8 Gen 3. פריצת דרך שמאתגרת את TSMC ו-Intel. IBM stock עולה על רקע ה-AI chip rally."
+
+- type: bull
+  time: "אתמול-היום"
+  tag: "Amazon Prime Day חזק"
+  tickers: [AMZN]
+  txt: "Amazon Prime Day מביא תוצאות מעל ציפיות: AI shopping +40% YoY, ביקוש לאלקסה AI devices שיא. אנליסטים של Goldman ו-JPMorgan העלו תחזיות Q2 לאמזון. AMZN +3.1% — הגדול ב-Big Tech היום."
+
+- type: info
+  time: "היום"
+  tag: "Brent $73 ממשיך"
+  tickers: [CEG, COST, AMZN]
+  txt: "Brent נמשך ל-$73 — המשך תוצאות הסכם איראן-טראמפ. Hormuz פתוח לחלוטין, טנקרים חוזרים. עלויות logi יורדות → COST ו-AMZN נהנות. CEG נהנית כי גרעין זול ביחס לגז. אינפלציה צפויה לרדת בחודשים הבאים."
