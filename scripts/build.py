@@ -311,8 +311,8 @@ def build(data):
   <div class="sheet">
     <div class="shandle"></div>
     <div class="sttl"><i class="ti ti-adjustments-horizontal" style="font-size:17px;color:var(--navy)"></i>הוסף / ערוך מניות</div>
-    <div class="ssub">הרשימה שלך נשמרת רק בדפדפן שלך.</div>
-    <div class="priv"><i class="ti ti-shield-check"></i><span>פרטיות מובנית: שינויים שלך לא ישפיעו על אף משתמש אחר.</span></div>
+    <div class="ssub">שינויים נשמרים אוטומטית ויופיעו בסקירה מחר.</div>
+    <div class="priv"><i class="ti ti-shield-check"></i><span>הרשימה מסונכרנת עם הסקירה היומית.</span></div>
     <div id="editList"></div>
     <div class="srchwrap">
       <i class="ti ti-search sico"></i>

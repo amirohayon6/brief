@@ -225,6 +225,29 @@ var EXTRA=[
 var UID=(function(){var id=localStorage.getItem("mb_uid");if(!id){id="u"+Date.now().toString(36)+Math.random().toString(36).slice(2,5);localStorage.setItem("mb_uid",id);}return id;})();
 var WLK="mb_wl_"+UID;
 var WL=JSON.parse(localStorage.getItem(WLK)||'["BTC","NVDA","IBM"]');
-function saveWL(){localStorage.setItem(WLK,JSON.stringify(WL));}
+
+function _wlSyncToast(msg,ok){
+  var old=document.getElementById('wl-sync-toast');if(old)old.remove();
+  var t=document.createElement('div');t.id='wl-sync-toast';t.textContent=msg;
+  t.style.cssText='position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:'+(ok?'var(--navy)':'#b91c1c')+';color:#fff;padding:8px 18px;border-radius:99px;font-size:12px;font-weight:700;font-family:Heebo,sans-serif;z-index:9999;transition:opacity .5s;pointer-events:none;box-shadow:0 4px 16px rgba(0,0,0,.18)';
+  document.body.appendChild(t);
+  setTimeout(function(){t.style.opacity='0';},2200);
+  setTimeout(function(){t.remove();},2800);
+}
+
+function saveWL(){
+  localStorage.setItem(WLK,JSON.stringify(WL));
+  fetch('/api/watchlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(WL)})
+    .then(function(r){_wlSyncToast(r.ok?'✓ נשמר לסקירה מחר':'⚠ שגיאת שמירה',r.ok);})
+    .catch(function(){_wlSyncToast('⚠ אין חיבור לשרת',false);});
+}
+
+// Sync watchlist from server on load (server is source of truth for the routine)
+fetch('/api/watchlist').then(function(r){if(r.ok)return r.json();}).then(function(s){
+  if(!Array.isArray(s)||!s.length)return;
+  if(JSON.stringify(s)===JSON.stringify(WL))return;
+  WL=s;localStorage.setItem(WLK,JSON.stringify(WL));
+  if(typeof renderAll==='function')renderAll();
+}).catch(function(){});
 
 // ── FLASH FEED DATA ─────────────────────────────────────────────────

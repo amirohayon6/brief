@@ -71,6 +71,11 @@ news:
   txt: "Hebrew description"
 ```
 
+## User watchlist (source of truth for the brief)
+**Before writing daily.md**, read `content/watchlist.json` to get the user's current stock list.
+Every symbol in that file MUST appear in the `## stocks` section of daily.md.
+If a symbol is not in the 43 below, search for its current price and write a 2-3 sentence Hebrew summary.
+
 ## All 43 tickers (in order)
 BTC ETH XRP NVDA AAPL MSFT AMZN META GOOGL TSLA
 AVGO AMD CRWD PANW PLTR DDOG APP TTD QCOM AMAT
