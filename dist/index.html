@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Market Brief · 25 יוני</title>
+<title>Market Brief · 29 יוני</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.26.0/tabler-icons.min.css">
@@ -307,14 +307,14 @@ html,body{font-family:'Heebo',-apple-system,Arial,sans-serif;background:var(--bg
 <!-- SCREEN: HOME -->
 <div class="screen" id="scr-home" style="display:block">
   <div class="home-hdr">
-    <div class="home-date">יום רביעי, 25 יוני 2026</div>
+    <div class="home-date">שני, 29 יוני 2026</div>
     <div class="home-title">בוקר טוב &#x1F44B;</div>
   </div>
   <div class="feed-wrap">
     <div class="feed-top">
       <span class="pulse-dot"></span>
       <span class="feed-lbl">עדכונים חמים</span>
-      <span class="feed-time">יום רביעי, 25 יוני 2026 · 10:30</span>
+      <span class="feed-time">שני, 29 יוני 2026 · 07:00</span>
     </div>
     <div class="feed-list" id="feed-list"></div>
   </div>
@@ -328,20 +328,20 @@ html,body{font-family:'Heebo',-apple-system,Arial,sans-serif;background:var(--bg
   <div class="next-card">
     <div>
       <div class="nc-lbl">הסקירה הבאה</div>
-      <div class="nc-title">IREN Russell מחר 26/6 · Q2 Earnings יולי</div>
+      <div class="nc-title">סוף רבעון שני — נייקי מחר</div>
       <div class="nc-sub">מתעדכן כל יום בשעה 10:30</div>
     </div>
     <button class="nc-btn" onclick="gotoScreen('brief')">לסקירה &#x2190;</button>
   </div>
-  <div class="footer">&#x26A0;&#xFE0F; לצרכי מידע בלבד &#xB7; אינו מהווה המלצת השקעה<br>Market Brief &#xB7; 25 יוני</div>
+  <div class="footer">&#x26A0;&#xFE0F; לצרכי מידע בלבד &#xB7; אינו מהווה המלצת השקעה<br>Market Brief &#xB7; 29 יוני</div>
 </div>
 
 <!-- SCREEN: BRIEF -->
 <div class="screen" id="scr-brief" style="display:none">
   <div class="brief-hdr">
-    <div class="brief-date">סקירה יומית &#xB7; 25 יוני</div>
+    <div class="brief-date">סקירה יומית &#xB7; 29 יוני</div>
     <div style="display:flex;align-items:center;gap:7px">
-      <span class="upd-badge">עודכן 10:30</span>
+      <span class="upd-badge">עודכן 07:00</span>
       <button onclick="openEdit()" style="background:var(--gold);color:var(--navy);border:none;border-radius:99px;padding:5px 12px;font-size:11px;font-weight:800;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:4px">
         <i class="ti ti-edit" style="font-size:13px"></i>ערוך מניות
       </button>
@@ -350,7 +350,7 @@ html,body{font-family:'Heebo',-apple-system,Arial,sans-serif;background:var(--bg
   <div class="disc"><i class="ti ti-alert-triangle"></i><span>לחץ על כרטיסיית מניה לניתוח מלא. אינו מהווה המלצת השקעה.</span></div>
   <div class="brief-cards" id="brief-cards"></div>
   <div style="padding:0 16px 24px;text-align:center;font-size:10px;color:var(--text3);line-height:1.8">
-    &#x26A0;&#xFE0F; לצרכי מידע בלבד &#xB7; אינו מהווה המלצת השקעה<br>25 יוני
+    &#x26A0;&#xFE0F; לצרכי מידע בלבד &#xB7; אינו מהווה המלצת השקעה<br>29 יוני
   </div>
 </div>
 
@@ -667,328 +667,328 @@ function saveWL(){localStorage.setItem(WLK,JSON.stringify(WL));}
 
 
 var TICKER_DATA = [
-  {sym:"BTC",price:"61,285",chg:"-3.0%",dir:-1},
-  {sym:"NVDA",price:"203.50",chg:"+1.8%",dir:1},
-  {sym:"IBM",price:"271.50",chg:"+0.3%",dir:1},
-  {sym:"IREN",price:"50.30",chg:"-8.1%",dir:-1},
-  {sym:"Nasdaq",price:"25,930",chg:"+1.8% Micron",dir:1},
-  {sym:"Brent",price:"73.10$",chg:"המשך הסכם איראן",dir:-1},
-  {sym:"MU",price:"+18.1%",chg:"רווחי מחץ Q3",dir:1},
+  {sym:"BTC",price:"$59,849",chg:"-0.4%",dir:-1},
+  {sym:"NVDA",price:"$192.53",chg:"-1.6%",dir:-1},
+  {sym:"IBM",price:"$271.63",chg:"-0.8%",dir:-1},
+  {sym:"IREN",price:"$46.22",chg:"-2.0%",dir:-1},
+  {sym:"Nasdaq",price:"25,298",chg:"-0.2%",dir:-1},
+  {sym:"Brent",price:"$72.01",chg:"+0.0%",dir:0},
+  {sym:"VIX",price:"19.7",chg:"+2.3%",dir:0},
 ];
 
 var DAILY = {
   BTC: {
-    price:"61,285 דולר",
-    chg:"-3.0%",
+    price:"59,849 דולר",
+    chg:"-0.4%",
     dir:-1,
-    summary:"ביטקוין ירד ל-61,285 דולר — PCE מאי יצא חם מהצפוי (3.8% YoY) ולחץ על נכסי סיכון. הנאסדאק עלה 1.8% בזכות Micron אך קריפטו הפגין חולשה יחסית — disconnect בין קריפטו לטק. MSTR ו-COIN סובלות עם BTC.",
-    news:[{c:"#EF4444",t:"PCE מאי 2026 — 3.8% YoY, חם מהצפוי. לחץ מאקרו על BTC ונכסי סיכון גם ביום tech rally."},{c:"#F59E0B",t:"Strategy מחזיקה 846,842 BTC — שווי $51.8B לאחר הירידה. NAV premium מצטמצם."},{c:"#22C55E",t:"Nasdaq AI rally מ-Micron לא הצית BTC — disconnect זמני. היסטורית, AI bull market טוב ל-BTC בטווח הבינוני."}]
+    summary:"ביטקוין ממשיך להיסחר מתחת לרף הפסיכולוגי של 60,000 דולר לאחר ירידה שבועית של כ-7%, כשמדד הפחד והחמדנות מצביע על פחד קיצוני. הרבעון השני של 2026 מסתיים עם הפסד רבעוני שני ברציפות עבור BTC. מלחמת איראן, סגירת מיצר הורמוז ולחצי אינפלציה לוחצים על שוק הקריפטו.",
+    news:[{c:"#EF4444",t:"BTC מתחת ל-60,000 דולר — ירידה שבועית של 7% ורגש שוק בפחד קיצוני"},{c:"#F59E0B",t:"סגירת מיצר הורמוז הגבירה חששות אינפלציה המדכאים נכסים דיגיטליים"}]
   },
   ETH: {
-    price:"1,741 דולר",
-    chg:"-1.6%",
+    price:"1,577 דולר",
+    chg:"-0.3%",
     dir:-1,
-    summary:"אתריום ב-1,741 דולר — ירד עם שאר הקריפטו לאחר FOMC ניצי. למרות הירידה, ETH עלה 9% בשבוע האחרון. ETF BlackRock ממשיך לגייס — $280M שבועי.",
-    news:[{c:"#EF4444",t:"ETH -1.6% לאחר FOMC. ריבית גבוהה ל-2026 = לחץ על נכסי סיכון."},{c:"#22C55E",t:"BlackRock ETH ETF — $280M גיוסים שבועיים. ביקוש מוסדי חזק."}]
+    summary:"אתריום נסחר סביב 1,577 דולר עם ירידה מינורית לאחר שבוע קשה לקריפטו. האלטקוינים ירדו חדות יותר מביטקוין במהלך השבוע ואתריום סיים את הרבעון השני בטריטוריה שלילית. מחזורי המסחר נותרים נמוכים יחסית על רקע אי-ודאות כלכלית.",
+    news:[{c:"#EF4444",t:"ETH רשמה ירידה דו-ספרתית בשבועיים האחרונים — יציאת כספים מהמגזר ממשיכה"},{c:"#22C55E",t:"פרויקטי DeFi ב-Layer 2 מדווחים על עלייה בשימוש בניגוד למגמת השוק הכללית"}]
   },
   XRP: {
-    price:"2.38 דולר",
-    chg:"-1.2%",
+    price:"1.04 דולר",
+    chg:"-0.2%",
     dir:-1,
-    summary:"XRP ב-2.38 דולר — ירידה מתונה. הסדר SEC סגור, רישיון בנקאי Ripple צפוי Q3 2026. הגורם הניצי של Fed מוריד מהתנופה.",
-    news:[{c:"#F59E0B",t:"FOMC ניצי — גורם לחץ על XRP בטווח הקצר. עדיין מעל $2."},{c:"#22C55E",t:"Ripple רישיון בנקאי Q3 — קטליזטור עיקרי קרוב."}]
+    summary:"XRP נסחר סביב 1.04 דולר עם ירידה מינורית ביחס לסגירת השבוע. המטבע שמר על יציבות יחסית בזמן ירידות רחבות בשוק הקריפטו. משקיעים מצפים לבהירות רגולטורית נוספת בארה\"ב לאחר ניצחונות משפטיים של Ripple.",
+    news:[{c:"#22C55E",t:"XRP שומר על יציבות יחסית בזמן לחץ כלל-מגזרי — ירידה מינימלית בלבד"},{c:"#EF4444",t:"נפח מסחר XRP ירד משמעותית עם ירידת אמון כללית בשוק הקריפטו"}]
   },
   NVDA: {
-    price:"203.50 דולר",
-    chg:"+1.8%",
-    dir:1,
-    summary:"Nvidia עולה ל-203.50 דולר — Micron הוכיחה ש-AI memory demand חזקה יותר מכל תחזית. HBM3E demand מ-NVDA sold out עד Q1 2027. Blackwell שרשרת ביקוש שלמה מאושרת היום.",
-    news:[{c:"#22C55E",t:"Micron Q3 — $41.46B הכנסות, HBM3E sold out. NVDA נהנית כ-primary customer לזיכרון AI."},{c:"#22C55E",t:"Blackwell demand ממשיך — Q4 delivery slots sold out. AI capex cycle לא מאט."}]
+    price:"192.53 דולר",
+    chg:"-1.6%",
+    dir:-1,
+    summary:"מניית אנבידיה ירדה כ-1.6% לאחר דיווחים ש-OpenAI שוקלת לדחות את ה-IPO שלה עקב ביצועי SpaceX הגרועים בבורסה. NVDA הובילה את ירידות שבבי ה-AI השבוע עם ירידה שבועית של כ-5%. המניה עדיין ב-+18% מתחילת 2026 על אף הלחץ.",
+    news:[{c:"#EF4444",t:"NVDA הובילה ירידות שבבי AI עם ירידה שבועית של כ-5% על רקע חששות ביקוש"},{c:"#22C55E",t:"אנליסטים שומרים על יעד מחיר ממוצע של 250 דולר עם פוטנציאל חזרה ב-H2 2026"}]
   },
   AAPL: {
-    price:"299.00 דולר",
-    chg:"+1.0%",
-    dir:1,
-    summary:"אפל עולה ל-299 דולר — טכנולוגיה מתאוששת בזכות AI rally מ-Micron. iOS 19 AI features בפיתוח. Apple-Intel deal ממשיך להניע סנטימנט. Qualcomm modems ו-ARM architecture נשארים.",
-    news:[{c:"#22C55E",t:"AI chip rally מ-Micron מושך את כל tech. AAPL נהנית מסנטימנט חיובי לסקטור."},{c:"#22C55E",t:"Apple-Intel deal ב-18A process — ייצור שבבים מקומי בארה\"ב. שרשרת אספקה מתחזקת."}]
+    price:"283.78 דולר",
+    chg:"-0.5%",
+    dir:-1,
+    summary:"אפל ירדה מעט לאחר שבוע קשה לסקטור הטכנולוגי. החברה ממשיכה לצמוח בהכנסות שירותים אך מניית AAPL חשופה ללחצי מאקרו גלובליים. כנס WWDC 2026 הציג חידושי AI מתוכננים לשנה הבאה שזכו לקבלת פנים מתונה.",
+    news:[{c:"#EF4444",t:"אפל ירדה כ-5% מנקודת השיא ביוני 2026 על רקע הסיבוב הגדול מטק"},{c:"#22C55E",t:"הכנסות שירותי אפל ממשיכות לצמוח ב-+15% שנתי ומגנות על הרווחיות"}]
   },
   MSFT: {
-    price:"371.00 דולר",
-    chg:"+1.9%",
-    dir:1,
-    summary:"מיקרוסופט קופצת ל-371 דולר — Micron הוכיחה ש-AI infrastructure investment ממשיך בעוצמה. Azure AI beneficiary ישיר. Copilot $4B ARR מצדיק ה-AI capex. Microsoft היא אחת הלקוחות הגדולות של Micron.",
-    news:[{c:"#22C55E",t:"AI infrastructure rally — Azure AI beneficiary ישיר. MSFT קונה Micron memory ל-data centers."},{c:"#22C55E",t:"Copilot ARR $4B — AI monetization מוכחת. OpenAI deal ממשיך ליצור ביקוש עצום."}]
+    price:"372.97 דולר",
+    chg:"-0.8%",
+    dir:-1,
+    summary:"מיקרוסופט ירדה על רקע מחלוקת שנפתרה עם OpenAI בנוגע לוויתור על זכויות בלעדיות. הסכם חדש הושג אך יצר אי-ודאות שמשקיעים שיחקו לצד השלילי. Azure ממשיכה להוות מנוע הצמיחה המרכזי.",
+    news:[{c:"#EF4444",t:"מיקרוסופט ו-OpenAI ביטלו סעיף הבלעדיות — אנליסטים חלוקים על ההשפעה"},{c:"#22C55E",t:"Azure Cloud צמחה ב-+28% ברבעון האחרון ומחזקת את עמדת MSFT כמובילת ה-AI"}]
   },
   AMZN: {
-    price:"241.50 דולר",
-    chg:"+3.1%",
-    dir:1,
-    summary:"אמזון קופצת ל-241.50 דולר — שני מנועים היום: Micron הוכיח ש-AWS AI capex מוצדק לחלוטין, ו-Prime Day ביצועים חזקים מעל תחזיות. AI shopping ב-Amazon עלה 40% YoY. Q2 revenue beat צפוי.",
-    news:[{c:"#22C55E",t:"Prime Day ביצועים חזקים — AI shopping +40% YoY. אנליסטים מעלים תחזיות Q2 לאמזון."},{c:"#22C55E",t:"AWS AI infrastructure — Micron confirms AI memory demand חזק. AWS beneficiary ישיר מ-HBM boom."}]
+    price:"232.69 דולר",
+    chg:"-1.2%",
+    dir:-1,
+    summary:"אמזון ירדה בלחץ המאקרו הכללי על מניות צמיחה ומכירות סוף רבעון. AWS ממשיכה לצמוח בקצב חזק וביקוש ה-AI נשאר חזק בפועל. המניה נסחרת YTD שלילי על רקע חשש מהאטה בהוצאות הצרכן.",
+    news:[{c:"#22C55E",t:"AWS מדווחת על גידול בביקוש לענן AI — הכנסות H1 2026 עלו בכ-30% שנתי"},{c:"#EF4444",t:"AMZN ספגה מכירות סוף רבעון ונמצאת YTD שלילי על רקע חשש מהאטה צרכנית"}]
   },
   META: {
-    price:"726.00 דולר",
-    chg:"+0.9%",
+    price:"551.22 דולר",
+    chg:"+0.2%",
     dir:1,
-    summary:"מטא ב-726 דולר — עולה עם ה-AI tech rally. Meta AI 500M משתמשים חודשיים. Llama 4 ממשיך להוביל open source AI. Ray-Ban Glasses 3M יחידות. ריאלס ממשיכות לצמוח בפרסום.",
-    news:[{c:"#22C55E",t:"AI tech rally יום חיובי לכל Big Tech. META מרוויחה מ-Micron rally וסנטימנט הסקטור."},{c:"#22C55E",t:"Meta AI 500M משתמשים. Llama 4 ב-top benchmarks — AI monetization ב-2026 בשיא."}]
+    summary:"מטא-פלטפורמות נסחרת יציבה עם עלייה מינורית בניגוד למגמת הטכנולוגיה הכללית. הכנסות הפרסום הדיגיטלי ממשיכות לצמוח ב-+20% שנתי ומחזקות את המניה. השקעות ה-AI של מטא מתחילות להניב תשואות מוחשיות.",
+    news:[{c:"#22C55E",t:"META עמידה לירידות הטק — הכנסות פרסום ממשיכות לצמוח ב-20%+ שנתי"},{c:"#F59E0B",t:"השקעות AR ו-AI של מטא גדלות — תשואה מלאה צפויה רק ב-2027"}]
   },
   GOOGL: {
-    price:"381.50 דולר",
-    chg:"+1.5%",
-    dir:1,
-    summary:"גוגל עולה ל-381.50 דולר — AI rally, Google Cloud מרוויחה ישירות. Gemini Ultra 2 מוביל benchmarks. Waymo expansion מתקדמת. DOJ antitrust ruling Q3 עדיין איום על המודל העסקי.",
-    news:[{c:"#22C55E",t:"Google Cloud beneficiary מ-AI infrastructure boom. Micron rally confirms AI capex cycle חזק."},{c:"#F59E0B",t:"DOJ antitrust Q3 — סיכון מתמשך. פסיקה תשפיע על Google Search ו-advertising מודל."}]
+    price:"337.39 דולר",
+    chg:"-1.5%",
+    dir:-1,
+    summary:"גוגל ירדה על רקע חשיפה ל-AI ובקרת רגולטורים. לחצי ה-DOJ על שוק החיפוש ממשיכים להכביד על מניית GOOGL. עם זאת, Google Cloud ממשיכה לצמוח בקצב חזק.",
+    news:[{c:"#EF4444",t:"DOJ הגביר בדיקות אנטי-מונופול נגד Google — אי-ודאות משפטית לוחצת על המניה"},{c:"#22C55E",t:"Google Cloud הציגה צמיחה של 30%+ ברבעון האחרון — עוקבת אחר AWS ו-Azure"}]
   },
   TSLA: {
-    price:"357.00 דולר",
-    chg:"-4.8%",
-    dir:-1,
-    summary:"טסלה נפלה ל-357 דולר — NHTSA פתחה חקירת בטיחות מיוחדת לאחר תאונה קטלנית: Model 3 עם FSD פגע בבית והרג אישה בת 76 ליד יוסטון. החקירה מאיימת ישירות על שירות Robotaxi Austin שהשיק ב-6 יוני.",
-    news:[{c:"#EF4444",t:"NHTSA probe — Model 3 FSD תאונה קטלנית בטקסס. חקירה מיוחדת מאיימת על Robotaxi rollout."},{c:"#F59E0B",t:"Robotaxi Austin (הושק 6/6) — 250 רכבים פעילים. NHTSA עלולה להשהות שירות עד תום החקירה."},{c:"#EF4444",t:"FSD recall risk — אם NHTSA תמצא פגם מערכתי, Tesla תידרש ל-software recall של כל הצי."}]
-  },
-  AVGO: {
-    price:"241.20 דולר",
-    chg:"+0.7%",
-    dir:1,
-    summary:"Broadcom עולה ל-241.20 דולר — נהנית מ-Intel-Apple deal. Custom ASIC ל-Google ו-Meta ממשיכים. VMware integration: +20% שוליים.",
-    news:[{c:"#22C55E",t:"Intel-Apple deal — Broadcom ASIC נשארת dominant. custom silicon demand גדל."}]
-  },
-  AMD: {
-    price:"551.30 דולר",
-    chg:"+0.5%",
-    dir:1,
-    summary:"AMD עולה ל-551.30 דולר — מרוויחה מ-Intel-Apple deal (Intel מתרכזת בייצור, לא בעיצוב). MI350 ממשיך לצבור הזמנות מ-MSFT ו-META.",
-    news:[{c:"#22C55E",t:"Intel focus on manufacturing → AMD מחזקת מעמד בעיצוב GPU/CPU. MI350 זוכה."}]
-  },
-  CRWD: {
-    price:"416.40 דולר",
-    chg:"+0.5%",
-    dir:1,
-    summary:"CrowdStrike ב-416.40 דולר. סייבר — defensive sector, פחות מושפע מ-FOMC. ARR $4.3B +33% YoY. NRR 122%.",
-    news:[{c:"#22C55E",t:"סייבר defensive — CRWD עמידה בסביבה ניצית. ARR $4.3B."}]
-  },
-  PANW: {
-    price:"383.50 דולר",
-    chg:"+0.4%",
-    dir:1,
-    summary:"Palo Alto Networks ב-383.50 דולר — יציבה. Platformization ממשיכה. DoD contracts חזקים.",
-    news:[{c:"#22C55E",t:"PANW defensive sector — עמידה אחרי FOMC. Platformization: 1,200 לקוחות."}]
-  },
-  PLTR: {
-    price:"156.20 דולר",
-    chg:"-1.4%",
-    dir:-1,
-    summary:"פאלנטיר ב-156.20 דולר — ירידה. Growth stock עם P/S 60x תחת לחץ מ-FOMC הניצי. יסודות חזקים: US Commercial +71% YoY.",
-    news:[{c:"#EF4444",t:"FOMC ניצי — PLTR P/S 60x תחת לחץ. growth stocks סובלות."},{c:"#22C55E",t:"US Commercial +71% YoY — האצה. AIP Platform: 200+ לקוחות חדשים."}]
-  },
-  DDOG: {
-    price:"148.10 דולר",
-    chg:"+0.5%",
-    dir:1,
-    summary:"Datadog ב-148.10 דולר. AI observability — ביקוש גדל. ARR $3.1B +25% YoY.",
-    news:[{c:"#22C55E",t:"AI observability מוצר — הכי מבוקש בקרב מפתחי LLM. ARR $3.1B."}]
-  },
-  APP: {
-    price:"415.60 דולר",
-    chg:"+0.7%",
-    dir:1,
-    summary:"AppLovin ב-415.60 דולר. AXON engine ממשיך. Q1 רווח $1.03B. מכונת מזומנים.",
-    news:[{c:"#22C55E",t:"Q1 רווח $1.03B. AXON AI — ביצועי פרסום שוברים שיאים רבעוניים."}]
-  },
-  TTD: {
-    price:"67.80 דולר",
-    chg:"+0.6%",
-    dir:1,
-    summary:"The Trade Desk ב-67.80 דולר — עלייה קלה. CTV מוביל $30B+ הוצאות. UID2 נאמץ על ידי 150+ publishers.",
-    news:[{c:"#22C55E",t:"CTV +$30B שנתי. TTD 30%+ נתח שוק. הסכם איראן → כלכלה מתאוששת → פרסום עולה."}]
-  },
-  QCOM: {
-    price:"173.10 דולר",
-    chg:"+0.5%",
-    dir:1,
-    summary:"Qualcomm ב-173.10 דולר — עלייה קלה. Apple-Intel deal: Qualcomm מאבדת פחות כי Apple תמשיך ב-Qualcomm modem. Snapdragon X Elite ב-laptops מרחיב.",
-    news:[{c:"#22C55E",t:"Apple-Intel deal — QCOM modem נשאר. Snapdragon X Elite expansion."}]
-  },
-  AMAT: {
-    price:"193.40 דולר",
-    chg:"+0.8%",
-    dir:1,
-    summary:"Applied Materials ב-193.40 דולר — עלייה. Intel-Apple deal = Intel מרחיבה ייצור = ביקוש לציוד AMAT עולה. DRAM cycle מתאושש.",
-    news:[{c:"#22C55E",t:"Intel expansion = ביקוש לציוד AMAT. Intel deal קטליזטור ישיר."}]
-  },
-  MU: {
-    price:"99.40 דולר",
+    price:"379.71 דולר",
     chg:"+1.2%",
     dir:1,
-    summary:"Micron ב-99.40 דולר — עלייה. HBM3E: 25% מצרכי NVDA. DRAM מחיר עולה. Q3 forecast $10.5B הכנסות.",
-    news:[{c:"#22C55E",t:"HBM3E demand — Micron מספקת 25% מ-NVDA. DRAM cycle recovery."}]
+    summary:"טסלה עלתה על רקע דיווחים חיוביים על נפחי משלוחי הרבעון השני וציפיות לפתיחת שווקים חדשים. מניית TSLA מציגה חוסן יחסי בתקופה של חולשה רחבה בטכנולוגיה. פיתוח ה-Robotaxi מוסיף לאופטימיות.",
+    news:[{c:"#22C55E",t:"טסלה עלתה על ציפיות המשלוחים ב-Q2 2026 — תחזיות שנתיות מוגדלות"},{c:"#F59E0B",t:"מאסק הכריז על הרחבת ה-Robotaxi לערים נוספות — מחלוקת על לוחות הזמנים נמשכת"}]
+  },
+  AVGO: {
+    price:"365.02 דולר",
+    chg:"-1.0%",
+    dir:-1,
+    summary:"ברודקום ירדה מעט על רקע הלחץ הרחב על שבבי AI ורכיבים. החברה נהנית מצמיחה בביקוש לשבבי ASIC מותאמי AI אך ירידות הסמיקונדקטור מעיבות. תוצאות הרבעון השני צפויות להיות חזקות.",
+    news:[{c:"#22C55E",t:"AVGO מדווחת על עלייה של 40% בהזמנות ASIC AI מלקוחות ענן מרכזיים"},{c:"#EF4444",t:"ירידה רחבה בסקטור הסמיקונדקטור מכבידה על AVGO למרות הפנדמנטלס החזקים"}]
+  },
+  AMD: {
+    price:"521.58 דולר",
+    chg:"-4.1%",
+    dir:-1,
+    summary:"AMD ירדה חדה כחלק ממכירות רחבות בסקטור שבבי ה-AI. גם NVDA וגם AMD חשופות לחולשת ביקוש שמשקיעים חוששים ממנה. AMD הציגה תוצאות חזקות ב-Q1 2026 אך ה-guidance מתחת לציפיות.",
+    news:[{c:"#EF4444",t:"AMD ירדה 4.1% — שבב MI350 מאחר בהגעה לשוק ומאכזב אנליסטים מסוימים"},{c:"#22C55E",t:"AMD ממשיכה לנגוס נתח שוק ב-GPU ל-AI Enterprise על חשבון פתרונות ישנים"}]
+  },
+  CRWD: {
+    price:"735.40 דולר",
+    chg:"+3.3%",
+    dir:1,
+    summary:"CrowdStrike עלתה בחדות ונסחרת קרוב לשיאה לאחר שבוע של ירידות. החברה הכריזה על פיצול מניה 4:1 שיכנס לתוקף ב-2 ביולי. ביצועי הסייבר-סקיוריטי ממשיכים להיות חזקים עם צמיחה חדה בהכנסות.",
+    news:[{c:"#22C55E",t:"CRWD עלתה 3.3% — פיצול מניה 4:1 ייכנס לתוקף ב-2 ביולי 2026"},{c:"#F59E0B",t:"סקטור הסייבר מתחזק על רקע גל התקפות סייבר גלובלי ב-H1 2026"}]
+  },
+  PANW: {
+    price:"303.40 דולר",
+    chg:"+3.8%",
+    dir:1,
+    summary:"פאלו אלטו נטוורקס עלתה חזק בסיום השבוע עם חזרה לאזור 300 דולר. החברה מציגה תוצאות חזקות בחתימות על שירותי פלטפורמה מאוחדת. עסקאות ענק חדשות מגבירות את האופטימיות לרבעון הבא.",
+    news:[{c:"#22C55E",t:"PANW עלתה 3.8% — עסקאות פלטפורמה מאוחדת במיליארד דולר+ קרובות לסגירה"},{c:"#EF4444",t:"תחרות גוברת מ-CrowdStrike ו-SentinelOne לוחצת על שיעורי הצמיחה של PANW"}]
+  },
+  PLTR: {
+    price:"112.93 דולר",
+    chg:"+5.3%",
+    dir:1,
+    summary:"פאלנטיר עלתה חזק ונסחרת קרוב לשיאה על רקע ביקוש גובר לפלטפורמות AI ממשלתיות. חוזים פדרליים חדשים עם משרד ההגנה ועוד כמה סוכנויות הוכרזו השבוע. פאלנטיר נהנית ממעמד כספקית בלעדית לאנליטיקה ממשלתית.",
+    news:[{c:"#22C55E",t:"פאלנטיר קיבלה חוזה ממשלתי חדש של 800 מיליון דולר להגנה וביטחון לאומי"},{c:"#F59E0B",t:"הערכת השווי הגבוהה של PLTR ממשיכה לחלק אנליסטים — P/E גבוה מייצר סיכון"}]
+  },
+  DDOG: {
+    price:"178.80 דולר",
+    chg:"+8.5%",
+    dir:1,
+    summary:"Datadog עלתה חזק ביותר מ-8% לאחר דיווח חיובי על צמיחת הכנסות AI observability. החברה עדכנה כלפי מעלה את תחזית הרבעון השלישי מעל לציפיות האנליסטים. ה-AI momentum של Datadog מדגים חוסן ייחודי ב-SaaS.",
+    news:[{c:"#22C55E",t:"Datadog הכריזה על תחזית Q3 מעל ציפיות — הכנסות AI observability צמחו 45%+"},{c:"#F59E0B",t:"הערכת שווי DDOG גבוהה מאוד — P/S ratio גבוה מבוסס על צמיחה עתידית"}]
+  },
+  APP: {
+    price:"374.20 דולר",
+    chg:"+7.0%",
+    dir:1,
+    summary:"AppLovin עלתה בחדות על רקע ביצועים מרשימים בפרסום דיגיטלי בנייד. חדשנות ה-AI של החברה ב-Axon 2.0 ממשיכה לייצר תשואות מרשימות למפרסמים. APP היא אחת המניות הטובות ביותר בנאסד\"ק 100 ב-2026.",
+    news:[{c:"#22C55E",t:"AppLovin עלתה 7% — Axon AI מוביל שיפור של 60% ב-ROAS עבור מפרסמי נייד"},{c:"#F59E0B",t:"תחרות גוברת מ-Google ו-Meta על פרסום הנייד עשויה ללחוץ על שולי APP"}]
+  },
+  TTD: {
+    price:"105.30 דולר",
+    chg:"+1.8%",
+    dir:1,
+    summary:"The Trade Desk עלתה מעט על רקע כלכלת הפרסום הדיגיטלי שממשיכה לגלות עמידות. הפלטפורמה נהנית מעלייה בפרסום Connected TV ובפרסום פרוגרמטי. החברה ממצבת עצמה כחלופה עצמאית לגוגל ומטא.",
+    news:[{c:"#22C55E",t:"TTD מציינת גידול של 35% בפרסום Connected TV — מנצלת חולשה יחסית של YouTube"},{c:"#EF4444",t:"תוצאות Q2 עשויות להיות מאכזבות בגלל חולשה עונתית — אנליסטים מורידים תחזיות"}]
+  },
+  QCOM: {
+    price:"157.40 דולר",
+    chg:"-7.6%",
+    dir:-1,
+    summary:"Qualcomm ספגה ירידה חדה של 7.6% על רקע חששות מהאטת ביקוש לשבבי AI בנייד. אנליסטים העלו חששות ש-Snapdragon AI יאבד נתח שוק לשבבי Apple Silicon. הלחץ על QCOM משקף ספקות רחבים יותר לגבי קצב אימוץ AI בנייד.",
+    news:[{c:"#EF4444",t:"QCOM ירדה 7.6% — חשיפה לשבבי Snapdragon מדאיגה משקיעים בביקוש חלש"},{c:"#22C55E",t:"עסקי ה-IoT ו-Automotive של קוואלקום ממשיכים לצמוח וגודרים חלק מהסיכון"}]
+  },
+  AMAT: {
+    price:"578.90 דולר",
+    chg:"-6.2%",
+    dir:-1,
+    summary:"Applied Materials ירדה חדה על רקע לחץ על כל שרשרת ערך הסמיקונדקטור. חולשת ביקוש ל-AI chips מעלה חששות לגבי השקעות CAPEX של יצרני שבבים. מגבלות ייצוא לסין ממשיכות לאיים על הכנסות AMAT.",
+    news:[{c:"#EF4444",t:"AMAT ירדה 6.2% — מגבלות ייצוא לסין ולחץ על CAPEX שבבי AI מכבידים"},{c:"#22C55E",t:"AMAT עדיין רושמת חתימות חדשות חזקות מיצרני שבב בתחום ה-AI לטווח ארוך"}]
+  },
+  MU: {
+    price:"112.50 דולר",
+    chg:"-6.7%",
+    dir:-1,
+    summary:"מיקרון ירדה חדה כ-6.7% כחלק ממגמת ירידות רחבה בשבבי זיכרון. חשש מעודפי מלאי ואי-ודאות ביקוש ל-HBM בתחום ה-AI הכביד על מניית MU. עם זאת, מיקרון נחשבת מניית AI-HBM מובילה לטווח ארוך.",
+    news:[{c:"#EF4444",t:"MU ירדה 6.7% — שבבי HBM תחת לחץ על רקע ספקות ביקוש AI קצר טווח"},{c:"#22C55E",t:"נתח שוק HBM של מיקרון גדל ל-35% — תפקיד מרכזי בשרשרת האספקה של NVDA"}]
   },
   MRVL: {
-    price:"85.10 דולר",
-    chg:"+0.8%",
-    dir:1,
-    summary:"Marvell ב-85.10 דולר. Custom silicon לגוגל ו-AWS: $2B ARR צפוי. 800G optics ביקוש גבוה.",
-    news:[{c:"#22C55E",t:"Custom silicon AWS/GOOGL: $2B ARR. Intel deal = data center expansion = Marvell נהנית."}]
+    price:"294.60 דולר",
+    chg:"-5.2%",
+    dir:-1,
+    summary:"Marvell Technology ירדה כ-5% על רקע הלחץ על מניות שבבי AI. החברה חשופה לשוק ה-ASIC הסמוך לביקוש ולכן ספקות לגבי הוצאות AI Cloud לוחצים על המניה. לטווח ארוך, MRVL נחשבת מנצחת מרכזית בתשתיות AI.",
+    news:[{c:"#EF4444",t:"MRVL ירדה 5.2% — חשיפה לביקוש ASIC AI שמשקיעים מטילים בו ספק קצר טווח"},{c:"#22C55E",t:"שיתוף פעולה עם Google ו-Amazon על שבבי ASIC מותאמי AI מחזק מעמד MRVL"}]
   },
   ARM: {
-    price:"165.90 דולר",
-    chg:"+0.7%",
-    dir:1,
-    summary:"ARM ב-165.90 דולר — עלייה. Intel-Apple deal: Apple תמשיך לעצב ARM-based chips, Intel רק יייצר. ARM royalties גדלות.",
-    news:[{c:"#22C55E",t:"Apple-Intel deal — Apple ממשיכה ARM architecture. ARM royalties יגדלו."}]
+    price:"147.80 דולר",
+    chg:"-3.9%",
+    dir:-1,
+    summary:"ARM Holdings ירדה כ-3.9% על רקע חשיפתה לשוק שבבי AI ורגישות לסנטימנט. ה-IP של ARM נמצא בכל סמארטפון ובמרבית שבבי ה-AI, אך שוק ה-Licensing מתמודד עם לחצים. המניה ממשיכה להיות מהיקרות ביחס בנאסד\"ק.",
+    news:[{c:"#EF4444",t:"ARM ירדה 3.9% — הערכת שווי גבוהה מייצרת רגישות לשינויי סנטימנט ב-AI"},{c:"#22C55E",t:"Arm v9 architecture משיגה אימוץ רחב ב-Data Center AI — בסיס לצמיחה ב-2027"}]
   },
   TXN: {
-    price:"193.10 דולר",
-    chg:"+0.4%",
-    dir:1,
-    summary:"Texas Instruments ב-193.10 דולר — יציבה. Industrial ו-automotive chips מתאוששים. Dividend 3.1% — מגן בסביבה ניצית.",
-    news:[{c:"#22C55E",t:"TI dividend 3.1% — defensive asset בסביבה ריבית גבוהה."}]
+    price:"295.50 דולר",
+    chg:"-8.5%",
+    dir:-1,
+    summary:"Texas Instruments ירדה חדה ביותר מ-8% על רקע חוסר ודאות בביקוש תעשייתי ואוטומוטיב. TXN חשופה לשוקי שבבים מחזוריים שסובלים מהאטה כשחששות ריבית ומאקרו עולים. הדיבידנד החזק מהווה ריפוד אך המניה חלשה.",
+    news:[{c:"#EF4444",t:"TXN ירדה 8.5% — ביקוש תעשייתי ואוטומוטיב מאכזב, מלאים גבוהים לוחצים"},{c:"#22C55E",t:"TXN ממשיכה לשלם דיבידנד חזק של 3.2% תשואה ומבטיחה רכישות עצמיות"}]
   },
   ADBE: {
-    price:"390.10 דולר",
-    chg:"+0.5%",
+    price:"469.30 דולר",
+    chg:"+4.8%",
     dir:1,
-    summary:"Adobe ב-390.10 דולר. Firefly AI: 12B תמונות. Creative Cloud $12.9B ARR. יציבה אחרי FOMC.",
-    news:[{c:"#22C55E",t:"Firefly 12B תמונות. CC ARR $12.9B — חזק ועקבי."}]
+    summary:"Adobe עלתה כמעט 5% על רקע דיווח חיובי על אימוץ שירותי AI Firefly וצמיחה חזקה ב-Creative Cloud. הכנסות מוצרי ה-Generative AI שלה צמחו בחדות ומציגות כי Creative AI מוסיף ערך. Adobe נהנית ממעמד מוניפוליסטי בשוק עיצוב הדיגיטלי.",
+    news:[{c:"#22C55E",t:"Adobe Firefly הגיעה ל-20 מיליון משתמשים חודשיים — הכנסות AI Creative עלו 55% ב-Q2"},{c:"#F59E0B",t:"תחרות גוברת מ-Canva ו-Figma AI מאתגרת חלקים מסוימים ממוצרי ADBE"}]
   },
   INTU: {
-    price:"714.80 דולר",
-    chg:"+0.4%",
+    price:"712.40 דולר",
+    chg:"+5.0%",
     dir:1,
-    summary:"Intuit ב-714.80 דולר. AI bookkeeping מוצר חדש: 50K לקוחות ב-Q1. QuickBooks SMB חזק.",
-    news:[{c:"#22C55E",t:"AI bookkeeping 50K לקוחות Q1. INTU defensive — עמידה לריבית גבוהה."}]
+    summary:"Intuit עלתה כ-5% על רקע אימוץ חזק של שירותי Intuit Assist ו-TurboTax AI. החברה מציגה נתוני משתמשים חזקים ומשפרת את תחזיותיה. ה-SaaS הפיננסי של Intuit מתחזק עם כלי ה-AI ל-SMB.",
+    news:[{c:"#22C55E",t:"INTU הכריזה על 15 מיליון עסקים קטנים המשתמשים ב-AI tools — הגדלת תחזית שנתית"},{c:"#F59E0B",t:"תחרות AI גנרטיבי חינמי עלולה לפגוע בהכנסות TurboTax לאורך זמן"}]
   },
   NFLX: {
-    price:"1,152.40 דולר",
-    chg:"+0.3%",
+    price:"73.81 דולר",
+    chg:"+4.1%",
     dir:1,
-    summary:"נטפליקס ב-1,152.40 דולר — שיא חדש. Ads tier 45M. NFL live 20M צפו. הסכם איראן = כלכלה מתאוששת = צרכנים ממשיכים לשלם.",
-    news:[{c:"#22C55E",t:"NFLX שיא חדש. Ads tier 45M + NFL live. הכנסות פרסום גדלות."}]
+    summary:"נטפליקס עלתה למעלה מ-4% על רקע דיווחים חיוביים על הכנסות פרסום וצמיחה בחברים. פלטפורמת הפרסום של נטפליקס צמחה בחדות ומביאה הכנסות נוספות מעבר למנויים. נטפליקס ממשיכה לצמוח גלובלית למרות לחצי עלות החיים.",
+    news:[{c:"#22C55E",t:"NFLX עלתה 4.1% — הכנסות פרסום גדלו 70% ב-Q2 עם 30 מיליון משתמשי Ad-Supported"},{c:"#EF4444",t:"עלות ייצור תוכן עולה עם בלוקבסטרים חדשים — לחץ על שולי הרווח קצר טווח"}]
   },
   COST: {
-    price:"1,051.30 דולר",
-    chg:"+0.2%",
+    price:"1,012.30 דולר",
+    chg:"+1.1%",
     dir:1,
-    summary:"Costco ב-1,051.30 דולר — יציבה. הסכם איראן → shipping זול → COST נהנית. מנויים 78M.",
-    news:[{c:"#22C55E",t:"הסכם איראן → Hormuz נפתח → shipping זול → margin COST עולה."}]
+    summary:"קוסטקו עלתה מעט ומציגה חוסן יחסי בתקופה של חולשה בשוק. הצרכן האמריקאי ממשיך לאהוב את מודל החברות של קוסטקו וחידושי מנויים בשיא. קוסטקו נחשבת מניה מגוננת בסביבת חוסר ודאות כלכלית.",
+    news:[{c:"#22C55E",t:"קוסטקו — שיעור חידוש מנויים של 93% בשיא כל הזמנים ב-Q2 2026"},{c:"#F59E0B",t:"לחצי אינפלציה על שרשרת האספקה עשויים ללחוץ על שולי קוסטקו בטווח הקצר"}]
   },
   SBUX: {
-    price:"81.90 דולר",
-    chg:"-0.6%",
-    dir:-1,
-    summary:"סטארבאקס ב-81.90 דולר — ירידה. SSS -5% Q2. CEO Niccol בתוכנית התאוששות.",
-    news:[{c:"#EF4444",t:"SSS -5% Q2 — לקוחות נמנעים מקפה $7. תוכנית Niccol לוקחת זמן."}]
+    price:"116.80 דולר",
+    chg:"+1.4%",
+    dir:1,
+    summary:"סטארבאקס עלתה מעט לאחר תקופה קשה. מנכ\"ל Brian Niccol ממשיך להוביל שינויים אסטרטגיים שמשקיעים מקבלים בחיוב. ביצועים חזקים בסין תורמים לגידול הכולל.",
+    news:[{c:"#22C55E",t:"SBUX — מנכ\"ל Niccol מציג שיפור בהכנסות חנויות זהות לאחר שנה קשה"},{c:"#EF4444",t:"תחרות ממותגי קפה מקומיים ממשיכה לגבות נתח שוק מסטארבאקס בשוקי מפתח"}]
   },
   TMUS: {
-    price:"239.40 דולר",
-    chg:"+0.2%",
+    price:"221.30 דולר",
+    chg:"+0.6%",
     dir:1,
-    summary:"T-Mobile ב-239.40 דולר — יציבה. Net adds 1.3M Q1. 5G coverage 310M אמריקאים. Defensive play.",
-    news:[{c:"#22C55E",t:"TMUS defensive — עמידה בסביבה ניצית. 5G coverage שיא."}]
+    summary:"T-Mobile עלתה מעט ומציגה יציבות על רקע תוצאות רבעון שני חזקות. הצמיחה ברשת ה-5G ממשיכה לייצר יתרון תחרותי מול AT&T ו-Verizon. TMUS ממשיכה להיות אחת המניות היציבות בתחום הטלקום.",
+    news:[{c:"#22C55E",t:"T-Mobile הוסיפה 1.3 מיליון עוקבים ב-Q2 2026 — עוקפת AT&T ו-Verizon בנתח שוק"},{c:"#EF4444",t:"לחץ תחרותי על מחירי תכניות עשוי לפגוע בהכנסה ממנוי בטווח הקצר"}]
   },
   AMGN: {
-    price:"295.20 דולר",
-    chg:"+0.4%",
+    price:"314.80 דולר",
+    chg:"+1.6%",
     dir:1,
-    summary:"Amgen ב-295.20 דולר. MariTide Phase 3 מתחיל Q4. GLP-1 monthly injection — יתרון.",
-    news:[{c:"#22C55E",t:"MariTide Phase 3 Q4. בריאות defensive — עמיד ל-FOMC."}]
+    summary:"אמגן עלתה מעט על רקע נתוני קליניים חיוביים לתרופות GLP-1. גדילת מחיר המניה משקפת אופטימיות לגבי קטגוריית תרופות ירידה במשקל. הרבעון השני מדגים תוצאות חזקות בסל התרופות המסחריות.",
+    news:[{c:"#22C55E",t:"אמגן — תרופת MariTide לירידה במשקל מציגה שמירה על תוצאות ב-Phase 3"},{c:"#EF4444",t:"תחרות גוברת מ-Eli Lilly ו-Novo Nordisk בשוק ה-GLP-1 מגבילה פוטנציאל AMGN"}]
   },
   GILD: {
-    price:"104.20 דולר",
-    chg:"+0.4%",
+    price:"82.60 דולר",
+    chg:"+3.3%",
     dir:1,
-    summary:"Gilead ב-104.20 דולר. Lenacapavir — 100% יעילות HIV. אישור FDA Q3.",
-    news:[{c:"#22C55E",t:"Lenacapavir FDA Q3. Biotech defensive — עמיד לריבית."}]
+    summary:"Gilead Sciences עלתה על רקע נתוני הצלחה של תרופת ה-HIV ועדכונים קליניים חיוביים. הכנסות Biktarvy ממשיכות לצמוח ומציבות את Gilead כמובילת שוק ב-HIV. צינור הפיתוח באונקולוגיה מחזק את הסנטימנט.",
+    news:[{c:"#22C55E",t:"GILD — Biktarvy שומרת על נתח שוק HIV של 50%+ עם אישורים בשווקים נוספים"},{c:"#F59E0B",t:"ה-pipeline האונקולוגי בשלב מתקדם — תוצאות Phase 3 ל-2027 קריטיות להמשך"}]
   },
   VRTX: {
-    price:"468.90 דולר",
-    chg:"+0.4%",
+    price:"531.20 דולר",
+    chg:"+2.3%",
     dir:1,
-    summary:"Vertex ב-468.90 דולר. Casgevy 90 מרכזים. VX-548 pain Phase 3 חיובי.",
-    news:[{c:"#22C55E",t:"VX-548 pain — שוק $3B+. Vertex pipeline חזק."}]
+    summary:"Vertex Pharmaceuticals עלתה על רקע ביצועי Casgevy — התרופה הגנטית לסגל החרמשי — שמציגה אימוץ מרשים. Vertex ממשיכה להיות מהמניות הביו-פרמה המוצלחות ביותר ב-2026. הצינור לכאב כרוני ולסיסטיק פייברוזיס מחזק את הצמיחה.",
+    news:[{c:"#22C55E",t:"Vertex — Casgevy עולה לשוק בקצב מרשים עם 500 מטופלים מאושרים ב-H1 2026"},{c:"#EF4444",t:"עלות Casgevy גבוהה מאוד — לחץ מחברות ביטוח על אישורי כיסוי מגביל צמיחה"}]
   },
   REGN: {
-    price:"683.10 דולר",
-    chg:"+0.2%",
+    price:"968.40 דולר",
+    chg:"+2.1%",
     dir:1,
-    summary:"Regeneron ב-683.10 דולר. Dupixent $14.3B. Linvoseltamab Phase 3 Q3.",
-    news:[{c:"#22C55E",t:"Dupixent מכונת מזומנים $14.3B. Pipeline חזק."}]
+    summary:"Regeneron עלתה על רקע ביצועים חזקים של Dupixent ועדכונים חיוביים מצינור ה-Oncology. Dupixent ממשיכה לצמוח בהתוויות חדשות ובמדינות חדשות. ה-R&D pipeline של Regeneron נחשב לחזק ביותר בתעשיית הביו-פרמה.",
+    news:[{c:"#22C55E",t:"REGN — Dupixent אישרה התוויה חדשה ל-COPD, שוק של 5 מיליארד דולר+ בשנה"},{c:"#F59E0B",t:"תמחור גבוה של REGN מושך תשומת לב רגולטורית בסביבת חקיקת מחירי תרופות"}]
   },
   ISRG: {
-    price:"536.20 דולר",
-    chg:"+0.3%",
+    price:"567.10 דולר",
+    chg:"+1.3%",
     dir:1,
-    summary:"Intuitive Surgical ב-536.20 דולר. Da Vinci 5: 1,800 מערכות. אביזרים +18% YoY.",
-    news:[{c:"#22C55E",t:"Da Vinci 5 1,800 מערכות. Recurring revenue חזק."}]
+    summary:"Intuitive Surgical עלתה על רקע צמיחה חזקה בהתקנת מערכות ניתוח רובוטי Da Vinci. הביקוש לניתוחים רובוטיים ממשיך לגדול ברחבי העולם, במיוחד באסיה. מערכת Da Vinci 5 החדשה מציגה אימוץ מרשים.",
+    news:[{c:"#22C55E",t:"ISRG — Da Vinci 5 הגיעה ל-1,000 התקנות בחצי שנה, ביצועים מעל ציפיות"},{c:"#EF4444",t:"תחרות צומחת מ-Medtronic ו-Johnson & Johnson בשוק הניתוחים הרובוטיים"}]
   },
   IBM: {
-    price:"271.50 דולר",
-    chg:"+0.3%",
-    dir:1,
-    summary:"IBM ב-271.50 דולר — יציבה. Consulting AI backlog $2B. WatsonX גדל. Intel-Apple deal לא משפיע ישירות.",
-    news:[{c:"#22C55E",t:"IBM defensive — עמידה ל-FOMC. Consulting AI backlog $2B."}]
+    price:"271.63 דולר",
+    chg:"-0.8%",
+    dir:-1,
+    summary:"IBM ירדה מעט על רקע הלחץ הכללי על מניות טכנולוגיה. החברה ממשיכה בפלטפורמת watsonx להובלת Hybrid Cloud ו-AI Enterprise. הכנסות הייעוץ ופיתוח צמחו אך קצב הצמיחה הכולל מאכזב יחסית לתחרות.",
+    news:[{c:"#22C55E",t:"IBM watsonx מוצג ב-300+ ארגונים גדולים — הכנסות AI Enterprise ממשיכות לעלות"},{c:"#EF4444",t:"IBM מפגרת ב-Generative AI יחסית ל-Microsoft ו-Google ומפספסת חלק מהתנופה"}]
   },
   IREN: {
-    price:"60.10 דולר",
-    chg:"+1.5%",
-    dir:1,
-    summary:"IREN עולה ל-60.10 דולר. מימון $3.65B סגור. Lunaria AI Cloud Q4. Russell 2000 inclusion 26/6 — 8 ימים. BTC ירד אתמול אך IREN עמידה — AI cloud exposure מגן.",
-    news:[{c:"#22C55E",t:"Russell 2000 inclusion 26/6 — 8 ימים. קנייה מנדטורית מקרנות אינדקס מתקרבת."},{c:"#22C55E",t:"Lunaria AI Cloud Q4. מימון $3.65B — הבנייה מתחילה. AI exposure מגן מ-BTC ירידה."}]
+    price:"46.22 דולר",
+    chg:"-2.0%",
+    dir:-1,
+    summary:"IREN ירדה על רקע הירידה הכללית בשוק הקריפטו וכריית ביטקוין. המניה ספגה ירידה של כמעט 23% במהלך יוני על אף הדיווח על הרחבת קיבולת כרייה. כריית BTC מושפעת ישירות ממחיר הביטקוין.",
+    news:[{c:"#EF4444",t:"IREN ירדה 23% ביוני — מחיר BTC מתחת ל-60,000 דולר לוחץ על רווחיות הכרייה"},{c:"#22C55E",t:"IREN הרחיבה קיבולת כרייה ב-30% ב-H1 2026 — מוכנה לעלייה עתידית של BTC"}]
   },
   COIN: {
-    price:"238.40 דולר",
-    chg:"-1.4%",
+    price:"146.22 דולר",
+    chg:"-1.5%",
     dir:-1,
-    summary:"Coinbase ב-238.40 דולר — ירידה עם BTC. FOMC ניצי = לחץ על קריפטו = COIN סובלת. Coinbase International מרחיבה לאירופה.",
-    news:[{c:"#EF4444",t:"FOMC ניצי → BTC ירד → COIN סובלת כרגיל. מגביר תנועות BTC פי 2."},{c:"#22C55E",t:"Coinbase International expansion — מנוע צמיחה נוסף מחוץ לארה\"ב."}]
+    summary:"Coinbase ירדה על רקע ירידות בשוק הקריפטו ופחות פעילות מסחר. נפחי המסחר ירדו משמעותית על רקע הסנטימנט השלילי בקריפטו. עם זאת, Coinbase מחזקת שירותי Base Layer 2 ועסקי ה-Custody.",
+    news:[{c:"#EF4444",t:"COIN ירדה 18.77% ביוני — נפחי מסחר קריפטו נמוכים עם ירידת BTC"},{c:"#22C55E",t:"Coinbase ממשיכה להרחיב Base Layer 2 — משתמשים פעילים עלו 25% ב-H1 2026"}]
   },
   MSTR: {
-    price:"389.20 דולר",
+    price:"84.74 דולר",
     chg:"-2.1%",
     dir:-1,
-    summary:"Strategy (MSTR) ירדה ל-389.20 דולר עם BTC. 576,230 BTC בהחזקה. NAV premium 2.2x. FOMC הניצי פגע בכל מניות ה-Bitcoin proxy.",
-    news:[{c:"#EF4444",t:"MSTR -2.1% — BTC ירד → MSTR מגביר פי 2. NAV premium 2.2x."},{c:"#F59E0B",t:"576,230 BTC = $37B. אם BTC ייתאושש מ-FOMC → MSTR תעלה חזק."}]
+    summary:"MicroStrategy ממשיכה לסבול מירידות חדות על רקע נפילת ביטקוין. המניה איבדה כמעט 47% ביוני ונסחרת סביב שפל של חצי שנה. האסטרטגיה של החזקת BTC ממנפת את החברה ישירות לחלופות הביטקוין.",
+    news:[{c:"#EF4444",t:"MSTR איבדה 47% ביוני — חשיפה מלאה לירידת BTC מתחת ל-60,000 דולר"},{c:"#F59E0B",t:"MSTR מחזיקה 200,000+ BTC — פוטנציאל גבוה אם BTC יחזור מעל 70,000 דולר"}]
   },
   SOFI: {
-    price:"14.71 דולר",
-    chg:"-0.7%",
-    dir:-1,
-    summary:"SoFi ב-14.71 דולר — ירידה קלה. ריבית hold = שוליים יציבים. Q1 רווח שיא.",
-    news:[{c:"#F59E0B",t:"ריבית גבוהה = חרב פיפיות: שוליים רחבים אבל ביקוש הלוואות עלול לרדת."}]
-  },
-  TEAM: {
-    price:"272.10 דולר",
-    chg:"+0.3%",
-    dir:1,
-    summary:"Atlassian ב-272.10 דולר. Jira AI adoption 40%. ARR $5.1B +22%.",
-    news:[{c:"#22C55E",t:"Jira AI 40% adoption. ARR $5.1B — יציב."}]
-  },
-  WDAY: {
-    price:"245.60 דולר",
-    chg:"+0.3%",
-    dir:1,
-    summary:"Workday ב-245.60 דולר. ARR $8.9B +17%. Illuminate AI 60% adoption.",
-    news:[{c:"#22C55E",t:"ARR $8.9B +17%. Illuminate AI — 60% לקוחות פעילים."}]
-  },
-  CEG: {
-    price:"279.80 דולר",
+    price:"20.94 דולר",
     chg:"+0.5%",
     dir:1,
-    summary:"Constellation Energy ב-279.80 דולר. Three Mile Island restart Q4. הסכם איראן מוריד גז טבעי → CEG נהנית כי גרעין זול בהשוואה. Microsoft + Amazon חוזים ל-10 שנות חשמל.",
-    news:[{c:"#22C55E",t:"הסכם איראן → גז זול → CEG נהנית יחסית כספקית חשמל גרעיני. Microsoft contract חזק."}]
+    summary:"SoFi Technologies עלתה מעט ומציגה יציבות. בנק SoFi ממשיך לצמוח בהכנסות מריביות בסביבת ריבית גבוהה. הפלטפורמה הפיננסית-טכנולוגית צומחת עם הדור הצעיר.",
+    news:[{c:"#22C55E",t:"SoFi דיווחה על עלייה של 35% בחשבונות פיננסיים חדשים ב-Q2 2026"},{c:"#EF4444",t:"לחץ תחרותי על מוצרי הלוואות סטודנטים ומשכנתאות בסביבת ריבית גבוהה"}]
+  },
+  TEAM: {
+    price:"316.40 דולר",
+    chg:"+5.4%",
+    dir:1,
+    summary:"Atlassian עלתה חזק על רקע ביצועים חזקים של פלטפורמת Jira ו-Confluence עם AI. מעבר ה-Cloud ממשיך להאיץ ויוצר הכנסות חוזרות גדלות. Atlassian ממצבת עצמה כפלטפורמת ניהול עבודת IT מובילה.",
+    news:[{c:"#22C55E",t:"TEAM — Atlassian Intelligence מוטמעת ב-Jira ו-Confluence עם אימוץ מרשים"},{c:"#EF4444",t:"ה-guidance למחצית השנייה מתחת לציפיות — צמיחה מאטה בגדלי לקוחות חדשים"}]
+  },
+  WDAY: {
+    price:"289.10 דולר",
+    chg:"+9.2%",
+    dir:1,
+    summary:"Workday עלתה חדה ביותר מ-9% על רקע דיווחים חיוביים על צמיחה מהירה בהכנסות SaaS HR ו-Finance. ה-AI agent של Workday מציג אימוץ מרשים בארגונים. המניה נהנית מהעברות תקציב IT לפלטפורמות AI מאוחדות.",
+    news:[{c:"#22C55E",t:"WDAY עלתה 9.2% — ה-AI agent מגדיל ביקוש ב-Enterprise HR ו-Finance SaaS"},{c:"#F59E0B",t:"פיצוי מנכ\"ל Workday מצית דיון — ועדת הביקורת בוחנת חבילת המנהלים"}]
+  },
+  CEG: {
+    price:"378.50 דולר",
+    chg:"+1.5%",
+    dir:1,
+    summary:"Constellation Energy עלתה על רקע ביקוש גובר לאנרגיה גרעינית לאספקת מרכזי Data Center ל-AI. החברה חתמה עסקאות ענק עם Google ו-Microsoft לאספקת חשמל גרעיני ב-PPA ארוך טווח. האנרגיה הגרעינית ממוצבת כפתרון לביקוש האנרגיה של ה-AI.",
+    news:[{c:"#22C55E",t:"CEG — חוזה PPA חדש עם ענקית טכנולוגיה לאנרגיה גרעינית ל-Data Center AI"},{c:"#EF4444",t:"עלויות תחזוקת תחנות כוח גרעיניות עולות — לחץ על שולי CEG בשנה הקרובה"}]
   },
 };
 
 var FLASH = [
-  {type:"bull",time:"05:30 ET",tag:"Micron מחץ רווחי",tickers:["MU","NVDA","AMD","AMAT"],txt:"Micron פרסמה רווחי Q3 FY2026 שהפתיעו את כולם: $41.46B הכנסות (פי 4.5 משנה שעברה), EPS $25.11 לעומת תחזית $20.20. MU +18.1%. Nasdaq futures קפצו 2%. אישור שה-AI memory demand חזק מכל תחזית."},
-  {type:"bear",time:"הבוקר",tag:"Tesla NHTSA probe",tickers:["TSLA"],txt:"NHTSA פתחה חקירת בטיחות מיוחדת: Model 3 עם FSD engaged פגע בבית והרג אישה בת 76 בטקסס. TSLA -4.8%. החקירה מאיימת על שירות Robotaxi Austin (הושק 6/6) עם 250 רכבים פעילים. פוטנציאל ל-software recall."},
-  {type:"event",time:"מחר 26/6",tag:"IREN Russell מחר",tickers:["IREN"],txt:"IREN תצטרף ל-Russell 2000 מחר בבוקר — קנייה מנדטורית מקרנות אינדקס המחזיקות $10T+ נכסים. IREN ירדה -8.1% היום — ייתכן שחשיפת שורטיסטים לפני הכניסה. היסטורית, מניות עולות 5-15% סביב ה-rebalancing."},
-  {type:"event",time:"08:30 ET",tag:"PCE מאי 2026",tickers:["BTC","MSFT","NVDA"],txt:"PCE מאי נחשף היום — 3.8% YoY, גבוה מתחזית 3.5%. Core PCE 3.3%. נפט-driven inflation מהחודשים האחרונים. הנתון לחץ על BTC אך השוק בחר לחגוג את Micron. Fed צפוי להחזיק ריבית."},
-  {type:"bull",time:"אתמול אחה",tag:"Qualcomm AI תחזיות",tickers:["QCOM","AMD"],txt:"Qualcomm פרסמה תחזיות AI optimistic לצד Micron — Snapdragon X Elite ב-AI PCs זוכה בנתחי שוק. QCOM מדריכה ל-AI PC market share של 40% ב-2026. Semis rally נרחב בכל הסקטור."},
-  {type:"bull",time:"הבוקר",tag:"IBM שבב תת-ננומטרי",tickers:["IBM"],txt:"IBM הודיעה על פיתוח שבב sub-1nm — הקטן בעולם — ב-אלביני ניו יורק. ביצועים פי 10 מ-Snapdragon 8 Gen 3. פריצת דרך שמאתגרת את TSMC ו-Intel. IBM stock עולה על רקע ה-AI chip rally."},
-  {type:"bull",time:"אתמול-היום",tag:"Amazon Prime Day חזק",tickers:["AMZN"],txt:"Amazon Prime Day מביא תוצאות מעל ציפיות: AI shopping +40% YoY, ביקוש לאלקסה AI devices שיא. אנליסטים של Goldman ו-JPMorgan העלו תחזיות Q2 לאמזון. AMZN +3.1% — הגדול ב-Big Tech היום."},
-  {type:"info",time:"היום",tag:"Brent $73 ממשיך",tickers:["CEG","COST","AMZN"],txt:"Brent נמשך ל-$73 — המשך תוצאות הסכם איראן-טראמפ. Hormuz פתוח לחלוטין, טנקרים חוזרים. עלויות logi יורדות → COST ו-AMZN נהנות. CEG נהנית כי גרעין זול ביחס לגז. אינפלציה צפויה לרדת בחודשים הבאים."},
+  {type:"bear",time:"06:30 ET",tag:"AI Chip Sell-Off",tickers:["NVDA","AMD","QCOM","MU"],txt:"גל מכירות רחב בשבבי ה-AI ממשיך לאחר שבוע קשה. NVDA ו-AMD הובילו ירידות של 4%-7% על רקע חששות מהאטת ביקוש ל-AI ודיווחים על עיכוב ה-IPO של OpenAI."},
+  {type:"bear",time:"06:00 ET",tag:"Crypto Q2 Loss",tickers:["BTC","ETH","COIN","MSTR"],txt:"ביטקוין מתחת ל-60,000 דולר עם ירידה שבועית של 7% ומדד פחד קיצוני. הרבעון השני של 2026 מסתיים עם הפסד רבעוני שני ברציפות לביטקוין ואתריום."},
+  {type:"bull",time:"07:00 ET",tag:"SaaS AI Recovery",tickers:["DDOG","APP","WDAY","PLTR"],txt:"מניות ה-SaaS מובילות את ההתאוששות עם עליות חדות. Datadog עלתה 8.5%, AppLovin עלתה 7%, Workday עלתה 9.2% ופאלנטיר עלתה 5.3% — הוכחה שה-AI Enterprise ממשיך לצמוח."},
+  {type:"event",time:"07:15 ET",tag:"מיצר הורמוז",tickers:[],txt:"סגירת מיצר הורמוז על ידי איראן מכניסה אי-ודאות גיאופוליטית שמשפיעה על מחירי הנפט ועל לחצי אינפלציה גלובליים. ברנט יציב ב-72 דולר אך הסיכונים הגיאופוליטיים גדלים."},
+  {type:"event",time:"08:00 ET",tag:"Q2 Earnings Week",tickers:["NKE"],txt:"שבוע דיווחי Q2 2026 מתחיל — נייקי ו-Constellation Brands מדווחות מחר. FactSet מצפה לצמיחת רווחים של 22% ב-S&P 500 — הרבעון השני ברציפות מעל 20%."},
+  {type:"info",time:"07:45 ET",tag:"CRWD Split 4:1",tickers:["CRWD"],txt:"CrowdStrike הכריזה על פיצול מניה 4:1 שיכנס לתוקף ב-2 ביולי 2026. לאחר הפיצול המניה תיסחר סביב 184 דולר. CRWD עלתה 3.3% ביום שישי וקרובה לשיאה."},
+  {type:"bull",time:"07:30 ET",tag:"Cyber חזק",tickers:["PANW","CRWD","PLTR"],txt:"מניות הסייבר-סקיוריטי מובילות את שוק הטכנולוגיה עם עליות של 3%-5% על רקע ביקוש ממשלתי וארגוני גבוה. גל התקפות סייבר גלובלי ב-H1 2026 מגביר הוצאות אבטחה."},
+  {type:"info",time:"08:15 ET",tag:"VIX מוגבר",tickers:[],txt:"מדד הפחד VIX עלה ל-19.7 ומשקף אי-ודאות בשוק לקראת תום הרבעון השני. מכירות סוף רבעון ורכישות מחדש של מנהלי תיקים מגבירים תנודתיות בשוק."},
 ];
 
 
