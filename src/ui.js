@@ -496,10 +496,22 @@ async function refreshWLExtras(){
   renderAll();
 }
 
+async function autoRefreshOnLoad() {
+  var allStocks = Object.keys(DAILY).filter(function(s){ return !CRYPTO_SYMS[s]; });
+  var wlStocks = WL.filter(function(s){ return !CRYPTO_SYMS[s]; });
+  var stocks = allStocks.length ? allStocks : wlStocks;
+  await Promise.all([
+    fetchCryptoPricesAll(),
+    Promise.allSettled(stocks.map(fetchWLStock)),
+    refreshNews()
+  ]);
+  renderAll();
+  if (typeof renderTicker === 'function') renderTicker();
+}
+
 window.addEventListener('load',function(){
-  setTimeout(refreshWLExtras, 1800);
+  setTimeout(autoRefreshOnLoad, 1500);
   setInterval(refreshWLExtras, 5*60*1000);
-  setTimeout(refreshNews, 2000);
   setInterval(refreshNews, 15*60*1000);
   injectRefreshBtn();
 });
