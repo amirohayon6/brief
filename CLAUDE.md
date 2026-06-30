@@ -92,6 +92,8 @@ TEAM WDAY CEG
 ## color: #22C55E=positive · #EF4444=negative · #F59E0B=event
 
 ## Build & deploy
+
+### מקומי (Local)
 ```bash
 cd /Users/amirohayon/market-brief-local/market-brief-project
 python3 scripts/build.py
@@ -100,6 +102,35 @@ git add content/daily.md dist/index.html
 git commit -m "Daily update — DD חודש YYYY"
 git push
 ```
+
+### ענן (Cloud routine)
+הרוטין רץ בסביבת ענן — אין גישה לנתיב המקומי. יש לעבוד כך:
+
+```bash
+# 1. שכפל את ה-repo לתיקייה זמנית
+git clone https://TOKEN@github.com/amirohayon6/brief.git /tmp/brief
+cd /tmp/brief
+```
+
+אחרי שכפול, ערוך את `content/daily.md` (כתוב עם כלי Write לנתיב `/tmp/brief/content/daily.md`), ואז:
+
+```bash
+# 2. בנה
+python3 scripts/build.py
+
+# 3. הגדר git user (נדרש בענן)
+git config user.email "routine@marketbrief.local"
+git config user.name "Market Brief Routine"
+
+# 4. Commit ו-push עם TOKEN בURL
+git add content/daily.md dist/index.html
+git commit -m "Daily update — DD חודש YYYY"
+git push https://TOKEN@github.com/amirohayon6/brief.git main
+```
+
+**חשוב:** TOKEN = GitHub Personal Access Token (PAT) עם הרשאות `repo`.
+הגדר אותו כמשתנה סביבה `GITHUB_TOKEN` בהגדרות ה-routine ב-claude.ai.
+אז תוכל להשתמש ב: `https://${GITHUB_TOKEN}@github.com/amirohayon6/brief.git`
 
 ## Hebrew days: ראשון שני שלישי רביעי חמישי שישי שבת
 ## Hebrew months: ינואר פברואר מרץ אפריל מאי יוני יולי אוגוסט ספטמבר אוקטובר נובמבר דצמבר

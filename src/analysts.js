@@ -235,17 +235,34 @@ function _wlSyncToast(msg,ok){
   setTimeout(function(){t.remove();},2800);
 }
 
+var _WL_DIRTY_KEY='mb_wl_dirty';
+
 function saveWL(){
   localStorage.setItem(WLK,JSON.stringify(WL));
+  localStorage.setItem(_WL_DIRTY_KEY,'1');
   fetch('/api/watchlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(WL)})
-    .then(function(r){_wlSyncToast(r.ok?'✓ נשמר לסקירה מחר':'⚠ שגיאת שמירה',r.ok);})
-    .catch(function(){_wlSyncToast('⚠ אין חיבור לשרת',false);});
+    .then(function(r){
+      if(r.ok){
+        localStorage.removeItem(_WL_DIRTY_KEY);
+        _wlSyncToast('✓ נשמר לסקירה מחר',true);
+      } else {
+        _wlSyncToast('⚠ שגיאת שמירה — נשמר מקומית',false);
+      }
+    })
+    .catch(function(){_wlSyncToast('⚠ אין חיבור — נשמר מקומית',false);});
 }
 
-// Sync watchlist from server on load (server is source of truth for the routine)
+// Sync watchlist from server on load
 fetch('/api/watchlist').then(function(r){if(r.ok)return r.json();}).then(function(s){
   if(!Array.isArray(s)||!s.length)return;
   if(JSON.stringify(s)===JSON.stringify(WL))return;
+  // If user has unsaved local changes, push them to server instead of overriding
+  if(localStorage.getItem(_WL_DIRTY_KEY)==='1'){
+    fetch('/api/watchlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(WL)})
+      .then(function(r){if(r.ok)localStorage.removeItem(_WL_DIRTY_KEY);})
+      .catch(function(){});
+    return;
+  }
   WL=s;localStorage.setItem(WLK,JSON.stringify(WL));
   if(typeof renderAll==='function')renderAll();
 }).catch(function(){});
